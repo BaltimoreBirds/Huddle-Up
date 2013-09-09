@@ -38,6 +38,11 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem "shoulda-matchers"
 end
 
 gem 'zurb-foundation', '~> 4.0.0'
