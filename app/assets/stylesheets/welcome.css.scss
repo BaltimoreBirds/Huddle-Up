@@ -1,0 +1,115 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "foundation_and_overrides.scss";
+
+
+body{
+}
+
+.body_container{
+}
+
+.body_content{
+  padding-top:05%;
+  padding-bottom:30%;
+  background: url('epicB-ballcourt.jpg') no-repeat top center  fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+
+
+}
+
+@font-face {
+  font-family: 'scream' ;
+  src: asset-url('scream.ttf', font);
+}
+
+.has_form{
+  position:absolute;
+  top:5px;
+}
+.search{
+  position:relative;
+  padding-top:6px;
+}
+.search_input{
+  border-radius: 4px;
+}
+.search_button{
+  // background: white;
+  border-radius:4px;
+}
+h1.logo{
+  font-family: 25px, 'scream';
+  text-align: center;
+  font-size:4em;
+  // background: -webkit-linear-gradient(#eee, black);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+
+}
+.user_field{
+  border-radius:4px;
+}
+.pass_field{
+  margin-bottom:0px;
+  border-radius:4px;
+}
+
+label{
+  color: black;
+}
+
+form {
+  text-align:center;
+  padding-bottom: 0;
+
+}
+
+.alt_sign_in{
+  text-align: center;
+}
+.twitter{
+  position:relative;
+  top:6px;
+}
+.boxes{
+  padding-bottom:0;
+
+}
+
+p{
+  color:white;
+  letter-spacing: 2px;
+}
+p a img{
+  position: relative;
+  top:10px;
+}
+.left{
+  // background: url('basketball.jpg') repeat top fixed;
+}
+.active a{
+  background:none;
+}
+.menu-small{
+  color:black;
+}
+
+
+.top-bar{
+  // background: url('basketball.jpg') repeat top fixed;
+}
+.top-bar-section > ul > .divider {
+  border-left:none;
+  border-right:none;
+}
+
+
+
+
