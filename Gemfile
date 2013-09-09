@@ -36,6 +36,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 gem 'zurb-foundation', '~> 4.0.0'
 
 
