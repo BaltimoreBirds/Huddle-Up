@@ -1,32 +1,14 @@
 require 'spec_helper'
 
 describe User do
-  it { should validate_presence_of :email }
 
-  describe 'validations'do
-    before do
-      @valid_attributes = {
-        username: "coolguy",
-        email: "asdasda@aol.com"
-      }
-    end
 
-    it "is valid when given valid attributes" do
-      user = User.new(@valid_attributes)
-      expect(user).to be_valid
-    end
+    it { should have_valid(:username).when('swan_tree_hill', 'xxFARTERxx900', 'RubyFanBoy' )}
+    it {should_not have_valid(:username).when(nil, '')}
 
-    it "requires a username" do
-      user = User.new(@valid_attributes.merge(username: nil))
-      expect(user).not_to be_valid
-    end
+    # it {should validate_uniqueness_of(:username) }
 
-    it "requires a email" do
-      user = User.new
-      expect(user.errors).to include(:email)
-    end
-    it "requires a name"
-  end
+    # describe "Validation of Username",
 end
 
-# shoulda-matchers gem.
+

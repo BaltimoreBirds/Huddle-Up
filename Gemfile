@@ -36,14 +36,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test do
+group :test, :development do
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'valid_attribute'
+  gem 'shoulda-matchers'
 end
 
-group :test do
-  gem "shoulda-matchers"
-end
+
 
 gem 'zurb-foundation', '~> 4.0.0'
 
