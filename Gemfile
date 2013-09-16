@@ -45,6 +45,7 @@ group :test, :development do
   gem 'shoulda-matchers'
 end
 
+gem 'launchy'
 
 
 gem 'zurb-foundation', '~> 4.0.0'

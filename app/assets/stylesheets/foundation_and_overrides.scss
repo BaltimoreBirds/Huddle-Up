@@ -34,8 +34,8 @@
 // $success-color: #5da423;
 
 // We use these to make sure border radius matches unless we want it different.
-$global-radius: 20px;
-$global-rounded: 1000px;
+// $global-radius: 3px;
+// $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
 // $shiny-edge-size: 0 1px 0;
@@ -78,7 +78,7 @@ $global-rounded: 1000px;
 // $block-grid-default-spacing: 10px;
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
-$block-grid-media-queries: true;
+// $block-grid-media-queries: true;
 
 //
 // Typography Variables
@@ -110,7 +110,7 @@ $block-grid-media-queries: true;
 // $subheader-bottom-margin: .5em;
 
 // A general <small> styling
-$small-font-size: 50%;
+// $small-font-size: 60%;
 // $small-font-color: lighten($header-font-color, 30%);
 
 // We use these to style paragraphs
@@ -203,7 +203,7 @@ $small-font-size: 50%;
 // $input-border-style: solid;
 // $input-border-width: 1px;
 // $input-disabled-bg: #ddd;
-// $input-box-shadow: inset 0 1px 5px rgba(157,156,255,0.8);
+// $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 
 // We use these to style the fieldset border and spacing.
 // $fieldset-border-style: solid;
@@ -264,7 +264,7 @@ $small-font-size: 50%;
 // $button-border-color: darken($primary-color, $button-function-factor);
 
 // We use this to set the default radius used throughout the core.
-$button-radius: $global-radius;
+// $button-radius: $global-radius;
 
 // We use this to set default opacity for disabled buttons.
 // $button-disabled-opacity: 0.6;
@@ -747,7 +747,7 @@ $button-radius: $global-radius;
 // $progress-bar-border-color: darken(#fff, 20%);
 // $progress-bar-border-size: 1px;
 // $progress-bar-border-style: solid;
-$progress-bar-border-radius: $global-radius;
+// $progress-bar-border-radius: $global-radius;
 
 // We use these to control the margin & padding
 // $progress-bar-pad: emCalc(2px);
@@ -968,28 +968,27 @@ $progress-bar-border-radius: $global-radius;
 //
 
 // Background color for the top bar
-$topbar-bg: white;   //#CC5300
+// $topbar-bg: #111;
 
 // Height and margin
-$topbar-height: 60px;
-$topbar-margin-bottom: emCalc(0px);
-// $topbar-margin-top: emCalc(10px);
+// $topbar-height: 45px;
+// $topbar-margin-bottom: emCalc(30px);
 
 // Control Input height for top bar
-$topbar-input-height: 2.45em;
+// $topbar-input-height: 2.45em;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: bold;
-$topbar-title-font-size: emCalc(25px);
+// $topbar-title-font-size: emCalc(17px);
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: black;
+// $topbar-link-color: #fff;
 // $topbar-link-weight: bold;
-$topbar-link-font-size: emCalc(15px);
+// $topbar-link-font-size: emCalc(13px);
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: white;
-$topbar-dropdown-link-color: black;
+// $topbar-dropdown-bg: #333;
+// $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.5;

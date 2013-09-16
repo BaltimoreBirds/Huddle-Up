@@ -2,11 +2,8 @@
 
 FactoryGirl.define do
   factory :user do
-    username "swan_tree_hill"
-    name "Michael Swanson"
-    email "mikeswanson12@msn.com"
-    location "Boston, MA"
-    skill "fucking awesome"
-
+    username "MyString"
+    password "MyString"
+    email "MyString"
   end
 end
