@@ -21,7 +21,8 @@
   </head>
 
   <body>
-    <nav class="top-bar">
+  <div class="body_container">
+    <nav class="top-bar nav_bar">
       <ul class="title-area">
         <!-- Title Area -->
         <li class="name">
@@ -33,7 +34,7 @@
 
       <section class="top-bar-section">
         <!-- Left Nav Section -->
-        <ul class="left">
+        <ul>
           <li class="divider"></li>
           <li class="active"><a href="#">Gobble!</a></li>
           <li class="divider"></li>
@@ -127,14 +128,16 @@
           </li>
           <li class="divider show-for-small"></li>
           <li class="has-form">
-            <a class="button" href="#">Button!</a>
+            <a class="button" href="#">Sign Out</a>
           </li>
         </ul>
       </section>
     </nav>
 
-    <div class="body_content">
+
+
     <%= yield %>
+</div>
 
 
     <%= javascript_include_tag "application" %>

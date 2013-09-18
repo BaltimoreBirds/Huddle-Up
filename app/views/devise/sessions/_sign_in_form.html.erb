@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="small-6 large-centered columns">
+
+    <%= form_for(User.new, :url => user_session_path) do |f| %>
+      <h2>Sign in</h2>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email, :autofocus => true %></div>
+
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
+
+      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+
+
+        <div class="row">
+          <p class="alt_sign_in small-12 large-12 columns "><em>Or sign in with: Facebook</em><a href="#"><img src="http://idmil.org/_media/logos/facebook_icon_2011.png" alt="facebook" width="32" height="32"></a><em>or Twitter</em><a class = "twitter" href="#"><%= image_tag("twitter-bird-light-bgs.png", :size => "45x28", :alt => "Twitter") %></a></p>
+        </div>
+      <div><%= f.submit "Sign in" %></div>
+    <% end %>
+
+  <div>
+</div>

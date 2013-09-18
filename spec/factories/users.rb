@@ -2,8 +2,10 @@
 
 FactoryGirl.define do
   factory :user do
-    username "MyString"
-    password "MyString"
-    email "MyString"
+    username "Jahsprout"
+    password "7777777j"
+    email "Mikeswanson12@msn.com"
+    city 'Columbia'
+    skill'Fucking Awsome'
   end
 end
