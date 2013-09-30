@@ -128,13 +128,14 @@
           </li>
           <li class="divider show-for-small"></li>
           <li class="has-form">
-            <a class="button" href="#">Sign Out</a>
+             <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button"%>
           </li>
         </ul>
       </section>
     </nav>
 
 
+    <p class="notice"><%= notice %></p>
 
     <%= yield %>
 </div>

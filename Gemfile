@@ -16,6 +16,8 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+gem 'simple_form'
+
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -43,6 +45,10 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers'
+
+  gem 'email_spec'
+
+  gem 'quiet_assets'
 end
 
 gem 'launchy'

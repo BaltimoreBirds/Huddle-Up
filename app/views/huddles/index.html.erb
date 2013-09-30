@@ -1,0 +1,10 @@
+<h1>Open Huddles. Get in there!</h1>
+
+<%= link_to "Create a new Huddle!", new_huddle_path %>
+
+<%- Huddle.all.each do |huddle| -%>
+<%- binding.pry-%>
+  <%- user = User.where(id: huddle.user_id).last -%>
+  <h3><%= user.username %></h3>
+  <%= link_to "Show #{Huddle}'s Huddle", huddle, method: :put %>
+<%- end -%>

@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916191939) do
+ActiveRecord::Schema.define(version: 20130930215336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "huddle_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "huddle_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "huddles", force: true do |t|
+    t.string   "skill_level",              null: false
+    t.string   "size_of_huddle",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "court",                    null: false
+    t.integer  "num_of_ballers_currently"
+    t.integer  "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -39,6 +56,7 @@ ActiveRecord::Schema.define(version: 20130916191939) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.integer  "huddle_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
