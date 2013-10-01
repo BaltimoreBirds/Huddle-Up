@@ -2,9 +2,14 @@
 
 <%= link_to "Create a new Huddle!", new_huddle_path %>
 
-<%- Huddle.all.each do |huddle| -%>
-<%- binding.pry-%>
+<%- @huddles.each do |huddle| -%>
   <%- user = User.where(id: huddle.user_id).last -%>
-  <h3><%= user.username %></h3>
-  <%= link_to "Show #{Huddle}'s Huddle", huddle, method: :put %>
+
+  <%- if user.username != nil -%>
+    <h3><%= "Creator: " %></h3><p><%= user.username %></p>
+  <%- else -%>
+    <h3><%= "Creator: " %></h3><p><%= user.email %></p>
+  <%- end -%>
+
+  <%= link_to "Explore this Huddle", huddle, method: :get %>
 <%- end -%>

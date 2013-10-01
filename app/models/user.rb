@@ -5,13 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          :confirmable
 
-        has_many :huddles,
-          through: :huddle_users
+  has_many :huddles,
+    through: :huddle_users
 
-        has_many :huddle_users
+  has_many :huddle_users
 
-         validates_presence_of :email
-         validates_presence_of :city
+  validates_presence_of :email
+  validates_presence_of :city
 
 
 end

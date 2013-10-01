@@ -2,7 +2,7 @@ class HuddlesController < ApplicationController
   helper_method :huddles
 
   def index
-
+    @huddles = Huddle.all
   end
 
   def new
@@ -10,8 +10,8 @@ class HuddlesController < ApplicationController
   end
 
   def create
-    binding.pry
-    @huddle = current_user.huddles.build(huddle_params)
+    @huddle = Huddle.new(huddle_params)
+    @huddle.user_id = current_user.id
 
     if @huddle.save
       redirect_to huddles_path, notice: "Huddle Created"
@@ -22,7 +22,7 @@ class HuddlesController < ApplicationController
 
 private
   def huddle_params
-    params.require(:huddle).permit( :skill_level, :size_of_huddle, :court, :user_id)
+    params.require(:huddle).permit( :skill_level, :size_of_huddle, :court)
   end
 
 end
