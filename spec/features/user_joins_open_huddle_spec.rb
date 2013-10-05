@@ -19,6 +19,7 @@ So that my spot is reserved in the huddle.
     huddle_creator = FactoryGirl.create(:user, email: 'mikeswanson12@msn.com')
     user = FactoryGirl.create(:user)
     huddle = FactoryGirl.create(:huddle, creator: huddle_creator.id)
+    huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
 
     sign_in_as(user)
     prev_count = huddle.num_of_ballers_currently

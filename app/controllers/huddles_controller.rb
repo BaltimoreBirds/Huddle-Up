@@ -19,6 +19,7 @@ class HuddlesController < ApplicationController
     @huddle.num_of_ballers_currently = 1
 
     if @huddle.save
+      HuddleUser.create(user_id: current_user.id, huddle_id: @huddle.id)
       redirect_to huddles_path, notice: "Huddle Created"
     else
       render action: 'new'
@@ -28,9 +29,12 @@ class HuddlesController < ApplicationController
   def update
     @huddle = Huddle.find(params[:id])
     @huddle.num_of_ballers_currently = (@huddle.num_of_ballers_currently + 1)
-    @huddle.save
-
-    render action: 'show'
+    @huddle_user = HuddleUser.find(params[:id])
+    if @huddle.update(huddle_params)
+      render action: 'show', notice: 'You\'ve joined this Huddle!'
+    else
+      redirect_to :back, notice: "Attempt to join failed."
+    end
   end
 
 private
