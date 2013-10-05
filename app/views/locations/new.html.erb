@@ -1,0 +1,19 @@
+<h4>Locations</h4>
+
+<%= form_for @location do |f| %>
+
+  <div class="field">
+    <%= f.label :address, 'Address', :autofocus => true  %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :court_name, 'Court Name' %><br />
+    <%= f.text_field :court_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Create New Location' %>
+  </div>
+
+<%- end %>

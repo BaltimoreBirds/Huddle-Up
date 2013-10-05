@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :user do
     username "Jahsprout"
     password "7777777j"
-    email "Mikeswanson12@msn.com"
+    email "Johsprout@aol.com"
     city 'Columbia'
     skill'Fucking Awsome'
   end

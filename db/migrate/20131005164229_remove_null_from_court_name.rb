@@ -1,4 +1,4 @@
-class RemoveNullFromCourtNameTwo < ActiveRecord::Migration
+class RemoveNullFromCourtName < ActiveRecord::Migration
   def up
     remove_column :locations, :court_name, :string, null: false
     add_column :locations, :court_name, :string
@@ -10,4 +10,3 @@ class RemoveNullFromCourtNameTwo < ActiveRecord::Migration
 
   end
 end
-
