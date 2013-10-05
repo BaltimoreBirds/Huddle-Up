@@ -1,0 +1,32 @@
+<h4>Locations</h4>
+
+<div id='mapcanvas'>
+  <%= gmaps4rails(@json) %>
+
+</div>
+
+
+<%- @locations.each do |location| -%>
+
+  <p>
+    <strong>Court Name</strong>
+    <%= location.court_name %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= location.city %>
+  </p>
+  <p>
+    <strong>State:</strong>
+    <%= location.state %>
+  </p>
+
+  <!-- google maps location details -->
+  <!-- Like the red baloons  -->
+  <!-- Add Court Descriptions  -->
+  <p>
+    <%= link_to "More Info about #{location.court_name}", location, method: :get %>
+  </p>
+
+<%- end -%>
