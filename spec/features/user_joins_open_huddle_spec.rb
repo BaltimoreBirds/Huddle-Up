@@ -22,7 +22,7 @@ So that my spot is reserved in the huddle.
     huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
 
     sign_in_as(user)
-    prev_count = huddle.num_of_ballers_currently
+    prev_count = HuddleUser.where(huddle_id: huddle.id).count
 
     expect(page).to have_content('Open Huddles')
     click_link 'Explore this Huddle'
@@ -32,10 +32,8 @@ So that my spot is reserved in the huddle.
     expect(page).to have_content(huddle.skill_level)
 
     click_button 'Join This Huddle!'
-    expect(huddle.num_of_ballers_currently).to eql(prev_count +1)
-    expect(page).to have_content('Huddle Joined!')
-
-    expect(page).to have_content('Open Huddles!')
+    expect(page).to have_content('You\'ve joined this Huddle!')
+    expect(HuddleUser.where(huddle_id: huddle.id).count).to eql(prev_count + 1)
   end
 
 end

@@ -7,7 +7,8 @@
 <%= @huddle.skill_level %>
 
 <h3>Current number of ballers in this huddle</h3>
-<%= @huddle.num_of_ballers_currently %><p>of</p><%= @huddle.size_of_huddle %><p>desired players in this huddle</p>
+<%- num_of_ballers = HuddleUser.where(huddle_id: @huddle.id).count -%>
+<%= num_of_ballers %><p>of</p><%= @huddle.size_of_huddle %><p>desired players in this huddle</p>
 
 <%= form_for @huddle do |f| %>
 
