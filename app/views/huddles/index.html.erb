@@ -3,12 +3,12 @@
 <%= link_to "Create a new Huddle!", new_huddle_path %>
 
 <%- @huddles.each do |huddle| -%>
-  <%- user = User.where(id: huddle.user_id).last -%>
+  <%- creator = User.where(id: huddle.creator).last -%>
 
-  <%- if user.username != nil -%>
-    <h3><%= "Creator: " %></h3><p><%= user.username %></p>
+  <%- if creator.username != nil -%>
+    <h3><%= "Creator: " %></h3><p><%= creator.username %></p>
   <%- else -%>
-    <h3><%= "Creator: " %></h3><p><%= user.email %></p>
+    <h3><%= "Creator: " %></h3><p><%= creator.email %></p>
   <%- end -%>
 
   <%= link_to "Explore this Huddle", huddle, method: :get %>

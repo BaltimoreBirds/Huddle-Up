@@ -1,0 +1,18 @@
+<h1>Huddle Details</h1>
+
+<h3>This game is being played at:</h3>
+<%= @huddle.court %>
+
+<h3>Skill Level</h3>
+<%= @huddle.skill_level %>
+
+<h3>Current number of ballers in this huddle</h3>
+<%= @huddle.num_of_ballers_currently %><p>of</p><%= @huddle.size_of_huddle %><p>desired players in this huddle</p>
+
+<%= form_for @huddle do |f| %>
+
+  <div class="actions">
+    <%= f.submit 'Join This Huddle!', class: "button radius" %>
+  </div>
+
+<% end %>

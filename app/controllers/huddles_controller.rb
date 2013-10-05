@@ -9,15 +9,28 @@ class HuddlesController < ApplicationController
     @huddle = Huddle.new
   end
 
+  def show
+    @huddle = Huddle.find(params[:id])
+  end
+
   def create
     @huddle = Huddle.new(huddle_params)
-    @huddle.user_id = current_user.id
+    @huddle.creator = current_user.id
+    @huddle.num_of_ballers_currently = 1
 
     if @huddle.save
       redirect_to huddles_path, notice: "Huddle Created"
     else
       render action: 'new'
     end
+  end
+
+  def update
+    @huddle = Huddle.find(params[:id])
+    @huddle.num_of_ballers_currently = (@huddle.num_of_ballers_currently + 1)
+    @huddle.save
+
+    render action: 'show'
   end
 
 private

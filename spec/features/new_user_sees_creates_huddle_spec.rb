@@ -23,9 +23,7 @@ feature'user creates a new huddle', %Q{
     prev_count = Huddle.all.count
     visit new_user_session_path
 
-    fill_in'Email', with: "Mikeswanson12@msn.com"
-    fill_in'Password', with: "7777777j"
-    click_button 'Sign in'
+    sign_in_as(user)
 
     click_link 'Create a new Huddle!'
     expect(page).to have_content("Huddle Up!")

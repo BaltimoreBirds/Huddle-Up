@@ -2,7 +2,7 @@ class Huddle < ActiveRecord::Base
   has_many :users,
     through: :huddle_users
 
-  has_many :users
+  has_many :huddle_users
 
   validates_presence_of :size_of_huddle
   validates_presence_of :skill_level
