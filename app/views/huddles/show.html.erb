@@ -1,21 +1,27 @@
-<h1>Huddle Details</h1>
+<div class="row">
+  <div class= "small-12 large-6 columns">
+    <div class = " small-12 large-12 large-centered columns panel huddles_framing">
+      <h1>Huddle Details</h1>
 
-<h3>This game is being played at:</h3>
-<%= @huddle.court %>
+      <h3>This game is being played at:</h3>
+      <%= @huddle.court %>
 
-<h3>Skill Level</h3>
-<%= @huddle.skill_level %>
-
-<h3>Current number of ballers in this huddle</h3>
-<%- num_of_ballers = HuddleUser.where(huddle_id: @huddle.id).count -%>
-<%= num_of_ballers %><p>of</p><%= @huddle.size_of_huddle %><p>desired players in this huddle</p>
-
-<%- if @huddle.size_of_huddle == num_of_ballers.to_s -%>
-  <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
-<%- else -%>
-  <%= form_for @huddle do |f| %>
-    <div class="actions">
-      <%= f.submit 'Join This Huddle!', class: "button radius" %>
+      <h3>Skill Level</h3>
+      <%= @huddle.skill_level %>
+      <div class="in_huddle_count">
+        <h3>Current number of ballers in this huddle</h3>
+        <%- num_of_ballers = HuddleUser.where(huddle_id: @huddle.id).count -%>
+        <%= num_of_ballers %><p>of</p><%= @huddle.size_of_huddle %><p>desired players in this huddle</p>
+      </div>
+      <%- if @huddle.size_of_huddle == num_of_ballers.to_s -%>
+        <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
+      <%- else -%>
+        <%= form_for @huddle do |f| %>
+          <div class="actions">
+            <%= f.submit 'Join This Huddle!', class: "button radius" %>
+          </div>
+        <% end %>
+      <%- end -%>
     </div>
-  <% end %>
-<%- end -%>
+  </div>
+</div>

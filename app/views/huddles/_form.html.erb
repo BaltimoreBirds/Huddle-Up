@@ -1,31 +1,59 @@
 <%= form_for @huddle do |f| %>
 
-  <div class="field">
-    <%= f.label :size_of_huddle, 'Desired Size of the Huddle' %><br />
-    <%= f.text_field :size_of_huddle %>
+  <div class="row">
+    <div class=" field small-12 large-6 large-centered columns">
+      <div class="small-6  large-6 columns ">
+        <%= f.label :size_of_huddle, 'Desired Size of the Huddle:', for: "right-label", class: "right inline" %><br />
+      </div>
+      <div class=" small-6 large-6 columns ">
+        <%= f.text_field :size_of_huddle, id: "right-label" %>
+      </div>
+    </div>
   </div>
 
-  <div >
-    <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
-    <%= f.label :skill_level_Beginner, "Beginner" %>
-    <%= f.radio_button :skill_level, "Average", id:"Average" %>
-    <%= f.label :skill_level_Average, "Average" %>
-    <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
-    <%= f.label :skill_level, "Casual" %>
-    <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
-    <%= f.label :skill_level_Advanced, "Advanced" %>
+  <div class="row">
+    <p> Skill Level: </p>
+    <div class="small-6 large-3 columns">
+      <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
+      <%= f.label :skill_level_Beginner, "Beginner" %>
+    </div>
+    <div class="small-6 large-3 columns">
+      <%= f.radio_button :skill_level, "Average", id:"Average" %>
+      <%= f.label :skill_level_Average, "Average" %>
+    </div>
+    <div class="small-6 large-3 columns">
+      <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
+      <%= f.label :skill_level, "Casual" %>
+    </div>
+    <div class="small-6 large-3 columns">
+      <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
+      <%= f.label :skill_level_Advanced, "Advanced" %>
+    </div>
   </div><br>
-  <div>
-    <%= f.datetime_select :time_and_date, :ampm => true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :court, 'Where do you want to play(court name)?' %><br />
-    <%= f.text_field :court %>
-  </div>
+  <div class="row form_bottom">
+    <div class="small-12 large-6 columns">
+      <div class="small-8 small-centered large-3 large-centered columns">
+        <p> Date and time of game: </p>
+        <%= f.datetime_select :time_and_date, :ampm => true %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit 'Create Huddle', class: "button radius"%>
+    <div class="small-12 large-6 columns">
+      <div class="large-centered columns court_form">
+        <div class="field">
+          <%= f.label :court, 'Where do you want to play(court name)?' %><br />
+          <%= f.text_field :court %>
+        </div>
+      </div>
+    </div>
+    <div class="small-12 large-6 columns">
+      <div class="large-centered columns">
+        <div class="actions">
+          <%= f.submit 'Create Huddle', class: "button radius"%>
+        </div>
+      </div>
+    </div>
   </div>
 
 <% end %>

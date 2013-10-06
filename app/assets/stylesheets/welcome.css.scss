@@ -11,55 +11,19 @@ body{
   font-family: 'scream' ;
   src: asset-url('scream.ttf', font);
 }
-
-.nav_bar{
-  background-color: white;
-}
-
-ul li{
-  background-color: white;
-}
-
-.has_form{
-  position: absolute;
-  top:3px;
-}
-.search{
-  position:relative;
-  padding-top:0px;
-
-}
-.search_input{
-  border-radius: 4px;
-}
-.search_button{
-  // color: white;
-  border-radius:4px;
-}
-h1.logo{
-  font-family: 25px, 'scream';
+.logo{
+  // font-family: 25px, 'scream';
   text-align: center;
-  font-size:4em;
-
-
+  font-size:3em;
 }
 .sign_in_form{
   text-align: center;
   border-radius:4px;
-
-}
-.button{
-  border-radius: 4px;
-}
-
-label{
-  color: black;
 }
 
 form {
   text-align:center;
   padding-bottom: 0;
-
 }
 
 .alt_sign_in{
@@ -71,7 +35,6 @@ form {
 }
 .boxes{
   padding-bottom:0;
-
 }
 
 p{
@@ -84,21 +47,50 @@ p a img{
 }
 
 .active a{
-  background:none;
-}
-.menu-small{
-  color:white;
-}
 
-
-.top-bar{
-  // background: url('basketball.jpg') repeat top fixed;
 }
 .top-bar-section > ul > .divider {
   border-left:none;
   border-right:none;
 }
 
-
-
-
+.huddles_framing{
+  text-align: center;
+  border: solid #222222 7px;
+  border-radius: 8px;
+}
+.panel{
+  background: rgba(218, 218, 218, .7);
+}
+.huddles{
+  text-align: center;
+  border-top: dotted black 2px;
+}
+.in_huddle_count{
+  display: inline-block;
+}
+.notice{
+  text-align: center;
+}
+.button{
+  background-color: #5B92CF;
+}
+a{
+  color: black;
+}
+.form_bottom{
+  padding-top: 10px;
+}
+p{
+  color:rgba(0,0,0,0.75);
+  font-size: emCalc(14px);
+}
+.court_form{
+  padding-top: 25px;
+}
+.center_text{
+  text-align: center;
+}
+.registration_skill{
+  padding-bottom: 20px;
+}

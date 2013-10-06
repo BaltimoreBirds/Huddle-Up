@@ -1,34 +1,49 @@
-<h2>Register</h2>
+<div class= "row huddles_framing panel">
+  <div class=" small-12 large-6 large-centered columns center_text">
+    <h2>Register for Huddle Up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :username %><br />
-  <%= f.email_field :username %></div>
+      <div><%= f.label :username %><br />
+      <%= f.email_field :username %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+      <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :city %><br />
-  <%= f.text_field :city %></div>
+      <div><%= f.label :city %><br />
+      <%= f.text_field :city %></div>
 
-  <div><%= radio_button_tag(:skill, "Beginner") %>
-    <%= label_tag(:skill_Beginner, "Beginner") %>
-    <%= radio_button_tag(:skill, "Average") %>
-    <%= label_tag(:skill_Average, "Average") %>
-    <%= radio_button_tag(:skill, "Casual") %>
-    <%= label_tag(:skill_Casual, "Casual") %>
-    <%= radio_button_tag(:skill, "Advanced") %>
-    <%= label_tag(:skill_Advanced, "Advanced") %>
+    <div class = "row registration_skill">
+      <p> Choose your skill level: </p>
+      <div class= "small-6 large-3 columns">
+          <%= radio_button_tag(:skill, "Beginner") %>
+          <%= label_tag(:skill_Beginner, "Beginner") %>
+      </div>
+      <div class= "small-6 large-3 columns">
+        <%= radio_button_tag(:skill, "Average") %>
+        <%= label_tag(:skill_Average, "Average") %>
+      </div>
+      <div class= "small-6 large-3 columns">
+        <%= radio_button_tag(:skill, "Casual") %>
+        <%= label_tag(:skill_Casual, "Casual") %>
+      </div>
+      <div class= "small-6 large-3 columns">
+        <%= radio_button_tag(:skill, "Advanced") %>
+        <%= label_tag(:skill_Advanced, "Advanced") %>
+      </div>
+    </div>
+
+    <p> Already Registered? : </p>
+    <div><%= f.submit "Sign up", class: "trigger button radius" %></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div><%= f.submit "Sign up", class: "trigger" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

@@ -1,20 +1,25 @@
-<h1>Open Huddles. Get in there!</h1>
+<div class= "row">
+  <div class= "small-8 large-centered columns panel huddles_framing">
+    <h1>Open Huddles. Get in there!</h1>
+    <%= link_to "Create a new Huddle!", new_huddle_path, class: "button radius " %>
 
-<%= link_to "Create a new Huddle!", new_huddle_path %>
+      <%- @huddles.each do |huddle| -%>
+        <div class= "small-8 large-centered columns huddles">
+          <%- creator = User.where(id: huddle.creator).last -%>
+          <%- num_in_huddle = HuddleUser.where(huddle_id: huddle.id).count -%>
 
-<%- @huddles.each do |huddle| -%>
-  <%- creator = User.where(id: huddle.creator).last -%>
-  <%- num_in_huddle = HuddleUser.where(huddle_id: huddle.id).count -%>
+          <%- if huddle.size_of_huddle == num_in_huddle.to_s -%>
+            <p> This Huddle is full </p>
+          <%- end -%>
 
-  <%- if huddle.size_of_huddle == num_in_huddle.to_s -%>
-    <p> This Huddle is full </p>
-  <%- end -%>
+          <%- if creator.username != nil -%>
+            <h4><%= "Captain: " %></h4><p><%= creator.username %></p>
+          <%- else -%>
+            <h4><%= "Captain: " %></h4><p><%= creator.email %></p>
+          <%- end -%>
 
-  <%- if creator.username != nil -%>
-    <h3><%= "Creator: " %></h3><p><%= creator.username %></p>
-  <%- else -%>
-    <h3><%= "Creator: " %></h3><p><%= creator.email %></p>
-  <%- end -%>
-
-  <%= link_to "Explore this Huddle", huddle, method: :get %>
-<%- end -%>
+          <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius" %>
+        </div>
+      <%- end -%>
+  </div>
+</div>
