@@ -27,11 +27,11 @@ class HuddlesController < ApplicationController
 
   def update
     @huddle = Huddle.find(params[:id])
-    HuddleUser.create(user_id: current_user.id, huddle_id: @huddle.id)
-    if  HuddleUser.where(user_id: current_user.id) != []
+    if HuddleUser.where(user_id: current_user.id, huddle_id: @huddle.id) == []
+      HuddleUser.create(user_id: current_user.id, huddle_id: @huddle.id)
       redirect_to @huddle, notice: 'You\'ve joined this Huddle!'
     else
-      redirect_to :back, notice: "Attempt to join failed."
+      redirect_to :back, notice: "You\'re already in this Huddle."
     end
   end
 
