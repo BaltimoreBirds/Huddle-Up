@@ -45,6 +45,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers'
+  gem 'validates_timeliness', '~> 3.0'
 
   gem 'email_spec'
 

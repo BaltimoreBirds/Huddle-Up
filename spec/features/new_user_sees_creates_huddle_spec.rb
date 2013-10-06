@@ -32,6 +32,11 @@ feature'user creates a new huddle', %Q{
     fill_in "Desired Size of the Huddle", with: '4'
     choose "Casual"
     fill_in 'Where do you want to play(court name)?', with: "Columbia Gym"
+    select '2014', from: 'huddle_time_and_date_1i'
+    select 'October', from: 'huddle_time_and_date_2i'
+    select '12', from: 'huddle_time_and_date_3i'
+    select '03 AM', from: 'huddle_time_and_date_4i'
+    select '30', from: 'huddle_time_and_date_5i'
     click_button'Create Huddle'
 
 

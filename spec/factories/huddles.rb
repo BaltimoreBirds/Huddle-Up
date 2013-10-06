@@ -6,5 +6,6 @@ FactoryGirl.define do
     size_of_huddle 2
     court "Martin Road Park"
     creator 0
+    time_and_date DateTime.tomorrow
   end
 end

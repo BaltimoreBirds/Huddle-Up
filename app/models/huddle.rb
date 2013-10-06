@@ -6,6 +6,7 @@ class Huddle < ActiveRecord::Base
 
   validates_presence_of :size_of_huddle
   validates_presence_of :skill_level
+  validates_presence_of :time_and_date
 
   validates :size_of_huddle, numericality:{
     greater_than: 1
@@ -15,6 +16,6 @@ class Huddle < ActiveRecord::Base
     message: "%{value} is not a valid skill level/range"
   }
 
-
+  validates_datetime :time_and_date, on_or_after: lambda{(DateTime.now + 19.minutes)}
 
 end

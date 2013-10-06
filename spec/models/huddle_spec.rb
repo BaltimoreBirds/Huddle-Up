@@ -7,5 +7,9 @@ describe Huddle do
   it{should have_valid(:skill_level).when("Advanced", "Any")}
   it{should_not have_valid(:skill_level).when(5, nil, " ", "potato")}
 
+  it{should have_valid(:time_and_date).when(DateTime.now + 20.minutes)}
+  it{should_not have_valid(:time_and_date).when(DateTime.now)}
+  it{should_not have_valid(:time_and_date).when(nil, "potato")}
+
   it{should have_many(:users)}
 end
