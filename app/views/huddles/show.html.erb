@@ -10,10 +10,15 @@
 <%- num_of_ballers = HuddleUser.where(huddle_id: @huddle.id).count -%>
 <%= num_of_ballers %><p>of</p><%= @huddle.size_of_huddle %><p>desired players in this huddle</p>
 
-<%= form_for @huddle do |f| %>
 
-  <div class="actions">
-    <%= f.submit 'Join This Huddle!', class: "button radius" %>
-  </div>
+<%- num_in_huddle = HuddleUser.where(huddle_id: @huddle.id).count -%>
 
-<% end %>
+<%- if @huddle.size_of_huddle == num_in_huddle.to_s -%>
+  <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
+<%- else -%>
+  <%= form_for @huddle do |f| %>
+    <div class="actions">
+      <%= f.submit 'Join This Huddle!', class: "button radius" %>
+    </div>
+  <% end %>
+<%- end -%>

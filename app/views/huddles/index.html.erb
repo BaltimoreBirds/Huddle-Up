@@ -4,6 +4,11 @@
 
 <%- @huddles.each do |huddle| -%>
   <%- creator = User.where(id: huddle.creator).last -%>
+  <%- num_in_huddle = HuddleUser.where(huddle_id: huddle.id).count -%>
+
+  <%- if huddle.size_of_huddle == num_in_huddle.to_s -%>
+    <p> This Huddle is full </p>
+  <%- end -%>
 
   <%- if creator.username != nil -%>
     <h3><%= "Creator: " %></h3><p><%= creator.username %></p>
