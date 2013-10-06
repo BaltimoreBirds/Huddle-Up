@@ -15,16 +15,17 @@
     <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
     <%= f.label :skill_level_Advanced, "Advanced" %>
   </div><br>
+  <div>
+    <%= f.datetime_select :time_and_date, :ampm => true %>
+  </div>
 
   <div class="field">
     <%= f.label :court, 'Where do you want to play(court name)?' %><br />
     <%= f.text_field :court %>
   </div>
-  <div>
-    <%= f.datetime_select :time_and_date, :ampm => true %>
-  </div>
+
   <div class="actions">
-    <%= f.submit 'Create Huddle' %>
+    <%= f.submit 'Create Huddle', class: "button radius"%>
   </div>
 
 <% end %>
