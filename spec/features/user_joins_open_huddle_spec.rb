@@ -36,4 +36,29 @@ So that my spot is reserved in the huddle.
     expect(HuddleUser.where(huddle_id: huddle.id).count).to eql(prev_count + 1)
   end
 
+    scenario'registered user tries to join full huddle' do
+      huddle_creator = FactoryGirl.create(:user, email: 'mikeswanson12@msn.com')
+      user = FactoryGirl.create(:user)
+      user2 = FactoryGirl.create(:user, email: 'johnjacob@aol.com')
+      huddle = FactoryGirl.create(:huddle, creator: huddle_creator.id)
+      huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
+      huddle_user2 = FactoryGirl.create(:huddle_user, user_id: user.id, huddle_id: huddle.id)
+
+      sign_in_as(user2)
+      prev_count = HuddleUser.where(huddle_id: huddle.id).count
+
+      expect(page).to have_content('Open Huddles')
+      expect(page).to have_content('This Huddle is full')
+      click_link 'Explore this Huddle'
+
+      expect(page).to have_content('Huddle Details')
+      expect(page).to have_content(huddle.court)
+      expect(page).to have_content(huddle.skill_level)
+
+      expect(page).to have_content('This Huddle is Full. Check out different Huddles')
+      click_button 'Join This Huddle!'
+      expect(page).to have_content('You\'ve joined this Huddle!')
+      expect(HuddleUser.where(huddle_id: huddle.id).count).to eql(prev_count + 1)
+    end
+
 end
