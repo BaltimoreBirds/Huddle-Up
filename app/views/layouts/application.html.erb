@@ -26,7 +26,11 @@
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">
-            <h1><a class= "logo" href="/huddles">Huddle Up </a></h1>
+            <% if current_user != nil %>
+              <h1><a class= "logo" href="/huddles">Huddle Up </a></h1>
+            <%else%>
+              <h1><a class= "logo" href="/users/sign_in">Huddle Up </a></h1>
+            <%end%>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span class="menu-small">Menu</span></a></li>
