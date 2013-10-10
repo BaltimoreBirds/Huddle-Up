@@ -14,4 +14,37 @@ So that I may be decide whether to register
 # *User can view huddles/locations
 # *if user tries to join huddle, user gets message, asking them to register,
 #    which redirects to registration pageh5
+
+  scenario'guest views content, tries to join huddle.' do
+    huddle_creator = FactoryGirl.create(:user, email: 'mikeswanson12@msn.com')
+    huddle = FactoryGirl.create(:huddle, creator: huddle_creator.id)
+    huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
+    prev_count = HuddleUser.where(huddle_id: huddle.id).count
+
+    visit root_path
+    expect(page).to have_content('Sign in')
+    click_link 'Explore site as Guest'
+
+    click_link('Explore this Huddle')
+    expect(page).to have_content('Huddle Details')
+    click_button('Join This Huddle!')
+    expect(page).to have_content('Sign in')
+    expect(prev_count).to eql(prev_count)
+  end
+
+  scenario'guest views content, tries to create huddle.' do
+    prev_count = HuddleUser.all.count
+
+    visit root_path
+    expect(page).to have_content('Sign in')
+    click_link 'Explore site as Guest'
+
+    click_link('Create a new Huddle!')
+    click_button('Create Huddle')
+    expect(page).to have_content('Sign in')
+    expect(prev_count).to eql(prev_count)
+
+  end
+
+
 end

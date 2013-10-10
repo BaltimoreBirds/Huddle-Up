@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-6 large-centered columns">
+  <div class="small-12 large-6 large-centered columns">
 
 
     <%= form_for(User.new, :url => user_session_path) do |f| %>
@@ -17,10 +17,20 @@
         <p class="alt_sign_in small-12 large-12 columns "><em>Or sign in with: Facebook</em><a href="#"><img src="http://idmil.org/_media/logos/facebook_icon_2011.png" alt="facebook" width="32" height="32"></a><em>or Twitter</em><a class = "twitter" href="#"><%= image_tag("twitter-bird-light-bgs.png", :size => "45x28", :alt => "Twitter") %></a></p>
       </div>
       <div><%= f.submit "Sign in", class: "button radius" %></div>
+
+
     <% end %>
 
 
-    <p>Don't have an account?</p><%= link_to 'Register Here', new_user_registration_path %>
-
+    <div class="small-12 large-centered columns center_text">
+      <p>Don't have an account?</p><%= link_to 'Register Here', new_user_registration_path, class: "button small radius" %>
+    </div>
   <div>
+
+  <div class= "large-12 columns center_text" >
+    <%= link_to 'Explore site as Guest', huddles_path, class: "button radius success" %>
+  </div>
+
 </div>
+
+
