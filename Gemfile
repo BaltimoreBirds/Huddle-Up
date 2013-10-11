@@ -54,10 +54,13 @@ end
 
 gem 'launchy'
 
-
 gem 'zurb-foundation', '~> 4.0.0'
 
 gem 'devise'
+
+gem 'active_model_serializers'
+
+# gem 'jquery_datepicker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

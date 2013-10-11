@@ -22,13 +22,13 @@ So that I may be decide whether to register
     prev_count = HuddleUser.where(huddle_id: huddle.id).count
 
     visit root_path
-    expect(page).to have_content('Sign in')
+    expect(page).to have_content('sign in')
     click_link 'Explore site as Guest'
 
     click_link('Explore this Huddle')
     expect(page).to have_content('Huddle Details')
     click_button('Join This Huddle!')
-    expect(page).to have_content('Sign in')
+    expect(page).to have_content('sign in')
     expect(prev_count).to eql(prev_count)
   end
 
@@ -36,12 +36,12 @@ So that I may be decide whether to register
     prev_count = HuddleUser.all.count
 
     visit root_path
-    expect(page).to have_content('Sign in')
+    expect(page).to have_content('sign in')
     click_link 'Explore site as Guest'
 
     click_link('Create a new Huddle!')
     click_button('Create Huddle')
-    expect(page).to have_content('Sign in')
+    expect(page).to have_content('sign in')
     expect(prev_count).to eql(prev_count)
 
   end

@@ -1,11 +1,11 @@
 
 <div class= "row">
-  <div class= "small-8 large-centered columns panel huddles_framing">
+  <div class= "small-12 large-centered columns panel huddles_framing">
     <h1>Open Huddles. Get in there!</h1>
     <%= link_to "Create a new Huddle!", new_huddle_path, class: "button radius " %>
 
       <%- @huddles.each do |huddle| -%>
-        <div class= "small-8 large-centered columns huddles">
+        <div class= "small-12 large-centered columns huddles">
           <%- creator = User.where(id: huddle.creator).last -%>
           <%- num_in_huddle = HuddleUser.where(huddle_id: huddle.id).count -%>
 

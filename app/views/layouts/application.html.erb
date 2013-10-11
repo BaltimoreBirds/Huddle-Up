@@ -89,7 +89,11 @@
             </li>
             <li class="divider show-for-small"></li>
             <li class="has-form">
-               <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button radius"%>
+              <% if current_user ==nil %>
+                <%= link_to 'Explore site as Guest', huddles_path, class: "button small radius success" %>
+              <% else %>
+                <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button radius"%>
+              <% end %>
             </li>
           </ul>
         </section>
@@ -103,8 +107,7 @@
 
     <%= yield %>
 </div>
-
-
     <%= javascript_include_tag "application" %>
+    <%= yield :extra_footer %>
   </body>
 </html>

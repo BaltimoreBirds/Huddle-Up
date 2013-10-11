@@ -1,57 +1,55 @@
 
-<%= form_for @huddle do |f| %>
+<%= simple_form_for @huddle do |f| %>
 
   <div class="row">
     <div class=" field small-12 large-6 large-centered columns">
-      <div class="small-6  large-6 columns ">
-        <%= f.label :size_of_huddle, 'Desired Size of the Huddle:', for: "right-label", class: "right inline" %><br />
+      <div class=" small-centered, large-centered columns ">
+        <%= f.text_field :size_of_huddle, placeholder:'Desired size of the Huddle' %>
       </div>
-      <div class=" small-6 large-6 columns ">
-        <%= f.text_field :size_of_huddle, id: "right-label" %>
+    </div>
+  </div>
+  <div class="small-12 large-6 large-centered columns">
+    <div class="large-centered columns court_form">
+      <div class="field">
+        <%= f.text_field :court, placeholder: "Court name" %>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <p> Skill Level: </p>
-    <div class="small-6 large-3 columns">
-      <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
-      <%= f.label :skill_level_Beginner, "Beginner" %>
-    </div>
-    <div class="small-6 large-3 columns">
-      <%= f.radio_button :skill_level, "Average", id:"Average" %>
-      <%= f.label :skill_level_Average, "Average" %>
-    </div>
-    <div class="small-6 large-3 columns">
-      <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
-      <%= f.label :skill_level, "Casual" %>
-    </div>
-    <div class="small-6 large-3 columns">
-      <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
-      <%= f.label :skill_level_Advanced, "Advanced" %>
+    <div class="small-12 large-8 large-centered columns">
+      <p> Skill Level: </p>
+      <div class="small-6 large-3 columns">
+        <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
+        <%= f.label :skill_level_Beginner, "Beginner" %>
+      </div>
+      <div class="small-6 large-3 columns">
+        <%= f.radio_button :skill_level, "Average", id:"Average" %>
+        <%= f.label :skill_level_Average, "Average" %>
+      </div>
+      <div class="small-6 large-3 columns">
+        <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
+        <%= f.label :skill_level, "Casual" %>
+      </div>
+      <div class="small-6 large-3 columns">
+        <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
+        <%= f.label :skill_level_Advanced, "Advanced" %>
+      </div>
     </div>
   </div><br>
 
   <div class="row form_bottom">
     <div class="small-12 large-6 columns">
-      <div class="small-8 small-centered large-12 large-centered columns">
         <p> Date and Time: </p>
-        <%= f.datetime_select :time_and_date, :ampm => true %>
+      <div class="small-6 small-centered large-4 large-centered columns">
+         <%= f.datetime_select :time_and_date, id:"datepicker" %>
       </div>
     </div>
 
     <div class="small-12 large-6 columns">
-      <div class="large-centered columns court_form">
-        <div class="field">
-          <%= f.label :court, 'Where do you want to play(court name)?' %><br />
-          <%= f.text_field :court %>
-        </div>
-      </div>
-    </div>
-    <div class="small-12 large-6 columns">
       <div class="large-centered columns">
-        <div class="actions">
-          <%= f.submit 'Create Huddle', class: "button radius"%>
+        <div class="actions create_huddle">
+          <%= f.submit 'Create Huddle', class: "button large radius"%>
         </div>
       </div>
     </div>

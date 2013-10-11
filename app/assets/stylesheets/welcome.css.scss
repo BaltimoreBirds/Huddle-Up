@@ -57,11 +57,13 @@
 
   .huddles_framing{
     text-align: center;
-    border: solid #222222 7px;
     border-radius: 8px;
   }
+  .top-bar .name h1 a {
+    color: black;
+  }
   .panel{
-    background: rgba(218, 218, 218, .7);
+    background: rgba(255,255,255, .7);
   }
   .huddles{
     text-align: center;
@@ -108,4 +110,7 @@
     background: url('mobile-court.jpg') no-repeat top center  fixed;
     background-size: 100%;
     }
+}
+.create_huddle{
+  margin-top: 50px;
 }

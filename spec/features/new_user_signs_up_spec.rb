@@ -24,9 +24,9 @@ So that I may find Huddles
     click_on 'Register Here'
     fill_in 'Username', with: "Jahsprout"
     fill_in 'Email', with: 'mjakejake@msn.com'
-    fill_in 'Password', with: 'hopefully'
-    fill_in 'Password confirmation', with: 'hopefully'
-    fill_in 'City', with: 'SomePlace'
+    fill_in "user_password", with: 'hopefully'
+    fill_in "user_password_confirmation", with: 'hopefully'
+    fill_in "user_city", with: 'Columbia'
     choose 'Advanced'
     click_button ('Sign up')
     expect(User.count).to eql(prev_count + 1)

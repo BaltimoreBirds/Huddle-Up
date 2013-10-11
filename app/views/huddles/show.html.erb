@@ -13,6 +13,15 @@
         <%- num_of_ballers = HuddleUser.where(huddle_id: @huddle.id).count -%>
         <%= num_of_ballers %><p>of</p><%= @huddle.size_of_huddle %><p>desired players in this huddle</p>
       </div>
+      <div id="member_display">
+        <p>Members in Huddle:</p>
+
+        <ul class="members-list">
+          <%- @huddle.users.each do |user| %>
+            <li><%= user.email %></li>
+          <%-end-%>
+        </ul>
+      </div>
       <%- if @huddle.size_of_huddle == num_of_ballers.to_s -%>
         <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
       <%- else -%>

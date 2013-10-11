@@ -3,12 +3,13 @@
 
 
     <%= form_for(User.new, :url => user_session_path) do |f| %>
-      <h2>Sign in</h2>
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email, :autofocus => true, class: "sign_in_form" %></div>
+      <div>
+        <%= f.email_field :email, :autofocus => true, placeholder: "Email", class: "sign_in_form" %>
+      </div>
 
-      <div><%= f.label :password %><br />
-      <%= f.password_field :password, class: "sign_in_form" %></div>
+      <div>
+        <%= f.password_field :password, placeholder: "Password", class: "sign_in_form password" %>
+      </div>
 
       <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
 
@@ -26,11 +27,6 @@
       <p>Don't have an account?</p><%= link_to 'Register Here', new_user_registration_path, class: "button small radius" %>
     </div>
   <div>
-
-  <div class= "large-12 columns center_text" >
-    <%= link_to 'Explore site as Guest', huddles_path, class: "button radius success" %>
-  </div>
-
 </div>
 
 
