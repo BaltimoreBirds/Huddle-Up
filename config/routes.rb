@@ -2,6 +2,7 @@ BreakableToy2::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations"}
   resources :users
   resources :huddles
+  resources :locations
 
 
   get "welcome/index"
