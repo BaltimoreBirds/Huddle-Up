@@ -46,9 +46,7 @@ group :test, :development do
   gem 'valid_attribute'
   gem 'shoulda-matchers'
   gem 'validates_timeliness', '~> 3.0'
-
   gem 'email_spec'
-
   gem 'quiet_assets'
 end
 
@@ -59,6 +57,8 @@ gem 'zurb-foundation', '~> 4.0.0'
 gem 'devise'
 
 gem 'active_model_serializers'
+
+gem 'geocoder'
 
 # gem 'jquery_datepicker'
 
