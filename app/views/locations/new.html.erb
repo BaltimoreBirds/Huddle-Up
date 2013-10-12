@@ -1,19 +1,13 @@
-<h4>Locations</h4>
+<h4>Add Court</h4>
 
-<%= form_for @location do |f| %>
+<%= simple_form_for @location do |f| %>
 
-  <div class="field">
-    <%= f.label :address, 'Address', :autofocus => true  %><br />
-    <%= f.text_field :address %>
-  </div>
+    <%= f.text_field :street, placeholder: "Street" %>
+    <%= f.text_field :ciy, placeholder: "City" %>
+    <%= f.text_field :state, placeholder: "State" %>
+    <%= f.text_field :postal, placeholder: "Postal code" %>
+    <%= f.text_field :court_name, placeholder: "Court name" %>
+    <%= f.submit 'Add this court location', class: "button radius" %>
 
-  <div class="field">
-    <%= f.label :court_name, 'Court Name' %><br />
-    <%= f.text_field :court_name %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit 'Create New Location' %>
-  </div>
 
 <%- end %>
