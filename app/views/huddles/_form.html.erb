@@ -38,11 +38,11 @@
     </div>
   </div><br>
 
-  <div class="row form_bottom">
-    <div class="small-12 large-6 columns">
+  <div class="row">
+    <div class="small-12 large-12 columns">
         <p> Date and Time: </p>
-      <div class="small-6 small-centered large-4 large-centered columns">
-         <%= f.datetime_select :time_and_date, id:"datepicker" %>
+      <div class="small-6 small-centered large-2 large-centered columns">
+         <%= f.datetime_select :time_and_date, ampm: true  %>
       </div>
     </div>
 
