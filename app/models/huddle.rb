@@ -4,9 +4,10 @@ class Huddle < ActiveRecord::Base
   has_many :users,
     through: :huddle_users
 
+  has_many :huddle_locations
+
   has_many :locations,
-    inverse_of: :huddle,
-    dependent: :nullify
+    through: :huddle_locations
 
   validates_presence_of :size_of_huddle
   validates_presence_of :location_id

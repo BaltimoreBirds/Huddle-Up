@@ -15,7 +15,6 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    binding.pry
     if @location.save
       render action: 'show', notice: "Location Added"
     else
