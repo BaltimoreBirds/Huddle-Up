@@ -3,7 +3,7 @@
 
   <p>
     <strong>Address</strong>
-    <%= @location.address %>
+    <%= @location.street %><%= @location.city %><%= @location.state %><%= @location.postal %>
   </p>
 
   <p>
@@ -14,4 +14,7 @@
 
 <h3>Nearby locations</h3>
 <ul>
+<% for location in @location.nearbys(20) %>
+  <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+<% end %>
 </ul>
