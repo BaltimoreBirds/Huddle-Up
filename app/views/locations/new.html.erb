@@ -1,14 +1,19 @@
-<h4>Add Court</h4>
-
-<p>Complete the required fields to add a court</p>
-<%= simple_form_for @location do |f| %>
-
-    <%= f.text_field :street, placeholder: "Street" %>
-    <%= f.text_field :city, placeholder: "City" %>
-    <%= f.text_field :state, placeholder: "State" %>
-    <%= f.text_field :postal, placeholder: "Postal code" %>
-    <%= f.text_field :court_name, placeholder: "Court name" %>
-    <%= f.submit 'Add this court location', class: "button radius" %>
 
 
-<%- end %>
+
+<div class="row">
+  <div class= "small-12 large-6 columns panel huddles_framing">
+    <p>Complete the required fields to add a court</p>
+    <%= simple_form_for @location do |f| %>
+
+        <%= f.text_field :street, placeholder: "Street" %>
+        <%= f.text_field :city, placeholder: "City" %>
+        <%= f.text_field :state, placeholder: "State" %>
+        <%= f.text_field :postal, placeholder: "Postal code" %>
+        <%= f.text_field :court_name, placeholder: "Court name" %>
+        <%= f.submit 'Add this court location', class: "button radius" %>
+
+
+    <%- end %>
+  </div>
+</div>

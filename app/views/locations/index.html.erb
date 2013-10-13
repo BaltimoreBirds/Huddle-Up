@@ -1,27 +1,27 @@
-<h4>Locations</h4>
+<div class="row">
+  <h4>Locations</h4>
+  <%- @locations.each do |location| -%>
+    <div class= "small-12 large-10 large-centered columns panel huddles_framing left_align">
+      <p>
+        <strong>Court Name</strong>
+        <%= location.court_name %>
+      </p>
 
+      <p>
+        <strong>City:</strong>
+        <%= location.city %>
+      </p>
+      <p>
+        <strong>State:</strong>
+        <%= location.state %>
+      </p>
 
-<%- @locations.each do |location| -%>
-
-  <p>
-    <strong>Court Name</strong>
-    <%= location.court_name %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= location.city %>
-  </p>
-  <p>
-    <strong>State:</strong>
-    <%= location.state %>
-  </p>
-
-  <!-- google maps location details -->
-  <!-- Like the red baloons  -->
-  <!-- Add Court Descriptions  -->
-  <p>
-    <%= link_to "More Info about #{location.court_name}", location, method: :get %>
-  </p>
-
-<%- end -%>
+      <!-- google maps location details -->
+      <!-- Like the red baloons  -->
+      <!-- Add Court Descriptions  -->
+      <p>
+        <%= link_to "More Info about #{location.court_name}", location, method: :get, class: "link" %>
+      </p>
+    </div>
+  <%- end -%>
+</div>
