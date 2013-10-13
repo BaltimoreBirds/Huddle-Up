@@ -11,8 +11,7 @@
   <div class="small-12 large-6 large-centered columns">
     <div class="large-centered columns court_form">
       <div class="field">
-        <%= f.collection_select :location_id,
-          Location.all, :id, :court_name, prompt: true %>
+        <%= f.association :locations, collection: Location.all(order: 'court_name'), prompt: "Where do you want to play?" %>
       </div>
     </div>
   </div>

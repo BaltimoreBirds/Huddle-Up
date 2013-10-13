@@ -57,7 +57,7 @@ class HuddlesController < ApplicationController
 
 private
   def huddle_params
-    params.require(:huddle).permit( :skill_level, :size_of_huddle, :time_and_date, :location_id)
+    params.require(:huddle).permit( :skill_level, :size_of_huddle, :time_and_date)
   end
 
 end

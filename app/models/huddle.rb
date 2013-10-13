@@ -1,16 +1,17 @@
 class Huddle < ActiveRecord::Base
-  has_many :huddle_users
 
   has_many :users,
     through: :huddle_users
 
-  has_many :huddle_locations
+  has_many :huddle_users
+
 
   has_many :locations,
     through: :huddle_locations
 
+  has_many :huddle_locations
+
   validates_presence_of :size_of_huddle
-  validates_presence_of :location_id
   validates_presence_of :skill_level
   validates_presence_of :time_and_date
   validates :size_of_huddle, numericality:{

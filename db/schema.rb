@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131013003825) do
+ActiveRecord::Schema.define(version: 20131013012822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "huddle_locations", force: true do |t|
-    t.integer  "huddle_id",   null: false
-    t.integer  "location_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "huddle_users", force: true do |t|
     t.integer  "user_id"
@@ -37,6 +30,7 @@ ActiveRecord::Schema.define(version: 20131013003825) do
     t.datetime "updated_at"
     t.integer  "creator",        null: false
     t.datetime "time_and_date",  null: false
+    t.integer  "location_id"
   end
 
   create_table "locations", force: true do |t|
