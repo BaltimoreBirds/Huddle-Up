@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Huddle do
-  it{should have_many :locations}
+  it{should belong_to :location}
 
   it{should have_valid(:size_of_huddle).when(5, 10)}
   it{should_not have_valid(:size_of_huddle).when("potato", "eight", nil, 1, " ")}

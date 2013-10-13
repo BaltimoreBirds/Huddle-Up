@@ -1,9 +1,6 @@
 class Location < ActiveRecord::Base
 
-  has_many :huddles,
-   through: :huddle_locations
-
-  has_many :huddle_locations
+  has_many :huddles
 
 
   STATES = [

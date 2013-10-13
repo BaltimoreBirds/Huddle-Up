@@ -5,6 +5,7 @@ FactoryGirl.define do
     skill_level "Casual"
     size_of_huddle 2
     creator 0
+    location_id 1
     time_and_date DateTime.tomorrow
   end
 end
