@@ -69,9 +69,6 @@
     text-align: center;
     border-top: dotted black 2px;
   }
-  .in_huddle_count{
-    display: inline-block;
-  }
   .notice{
     text-align: center;
   }
@@ -111,4 +108,9 @@
 .create_huddle{
   margin-top: 50px;
 }
-
+.left_align{
+  text-align: left
+}
+.link{
+  color: #5B92CF;
+}
