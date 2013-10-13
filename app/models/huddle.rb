@@ -1,8 +1,12 @@
 class Huddle < ActiveRecord::Base
-  has_many :huddle_users
 
   has_many :users,
     through: :huddle_users
+
+  has_many :huddle_users
+
+  belongs_to :location,
+    inverse_of: :huddles
 
   validates_presence_of :size_of_huddle
   validates_presence_of :skill_level

@@ -4,8 +4,8 @@ FactoryGirl.define do
   factory :huddle do
     skill_level "Casual"
     size_of_huddle 2
-    court "Martin Road Park"
     creator 0
+    location_id 1
     time_and_date DateTime.tomorrow
   end
 end

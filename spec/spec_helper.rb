@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'valid_attribute'
 require 'capybara'
+require 'capybara/dsl'
 require 'email_spec'
 
 

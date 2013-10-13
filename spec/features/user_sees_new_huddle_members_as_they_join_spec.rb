@@ -31,11 +31,10 @@ So that I am aware of how fast a huddle fills
     expect(page).to have_content(huddle.court)
     expect(page).to have_content(huddle.skill_level)
     expect(page).to have_content('Members in Huddle:')
-    expect(page).to have_content('Jahsprout')
+    expect(page).to have_content('mikeswanson12@msn.com')
     huddle_user2 = FactoryGirl.create(:huddle_user, user_id: user2.id, huddle_id: huddle.id)
-    expect(page).to have_content('Jahsprout')
-    expect(page).to have_content('Shrek')
-    expect(prev_count).to eql(prev_count + 1)
+    expect(page).to have_content('mikeswanson12@msn.com')
+    expect( HuddleUser.where(huddle_id: huddle.id).count).to eql(prev_count + 1)
 
   end
 

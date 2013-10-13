@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+Capybara.default_wait_time = 5
 
 feature'user creates a new huddle', %Q{
   As an Authenticated user
@@ -29,9 +30,9 @@ feature'user creates a new huddle', %Q{
     expect(page).to have_content("Huddle Up!")
 
     expect(page).to have_content("How many people are you looking to play with?")
-    fill_in "Desired Size of the Huddle", with: '4'
+    find("input[placeholder='Desired size of the Huddle']").set "2"
     choose "Casual"
-    fill_in 'Where do you want to play(court name)?', with: "Columbia Gym"
+    find("input[placeholder='Court name']").set "Columbia Gym"
     select '2014', from: 'huddle_time_and_date_1i'
     select 'October', from: 'huddle_time_and_date_2i'
     select '12', from: 'huddle_time_and_date_3i'

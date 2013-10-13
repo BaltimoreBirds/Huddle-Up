@@ -2,26 +2,6 @@ $(document).ready(function(){
   $(".notice").fadeOut(4600);
   $(".alert-box").fadeOut(4600);
 
-//   function refreshHuddleMembers(id) {
-
-
-//     $.get("/huddles/" + id + ".json", updateHtml);
-//   }
-
-//   function updateHtml(huddle){
-//     $('div#huddle_display').html(huddle.huddleMembers);
-//   }
-
-//   function startHuddleRefresher() {
-//     setInterval(refreshHuddleMembers(9), 3000);
-//   }
-
-//   startHuddleRefresher();
-
-
-// });
-
-
   function poll() {
     setTimeout(function() {
       somethingElse();
