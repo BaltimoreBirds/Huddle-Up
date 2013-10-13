@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   belongs_to :huddle,
-   inverse_of: :location
+   inverse_of: :locations
 
   STATES = [
   "Alabama","AL",

@@ -57,7 +57,7 @@ describe Location do
 ]
 
 
-  it{should belong_to :huddle}
+  it{should belong_to :huddles}
 
   it{should have_valid(:street).when("6667 Buckstone Court")}
   it{should_not have_valid(:street).when( nil, " ")}
