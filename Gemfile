@@ -61,6 +61,7 @@ gem 'active_model_serializers'
 
 gem 'geocoder'
 
+
 # gem 'jquery_datepicker'
 
 # Use ActiveModel has_secure_password
