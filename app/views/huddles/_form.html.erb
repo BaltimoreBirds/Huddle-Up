@@ -11,10 +11,12 @@
   <div class="small-12 large-6 large-centered columns">
     <div class="large-centered columns court_form">
       <div class="field">
-        <%= f.text_field :court, placeholder: "Court name" %>
+        <%=f.association :location_id, collection: Location.all(order: 'court_name').map { |r| [r.court_name, r.city] }, prompt: "Where are you playing?", label: false %>
       </div>
     </div>
   </div>
+  <p>Location not in the database?</p>
+  <%= link_to 'Add it here', new_location_path, class: "button radius small" %>
 
   <div class="row">
     <div class="small-12 large-8 large-centered columns">
@@ -45,6 +47,7 @@
          <%= f.datetime_select :time_and_date, ampm: true  %>
       </div>
     </div>
+
 
     <div class="small-12 large-6 columns">
       <div class="large-centered columns">

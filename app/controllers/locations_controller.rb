@@ -15,6 +15,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    binding.pry
     if @location.save
       render action: 'show', notice: "Location Added"
     else
@@ -26,6 +27,6 @@ class LocationsController < ApplicationController
   end
 private
   def location_params
-    params.require(:location).permit(:address, :court_name, :latitude, :longitude)
+    params.require(:location).permit(:street, :city, :state, :postal, :court_name, :latitude, :longitude)
   end
 end

@@ -48,6 +48,7 @@ group :test, :development do
   gem 'validates_timeliness', '~> 3.0'
   gem 'email_spec'
   gem 'quiet_assets'
+
 end
 
 gem 'launchy'
