@@ -76,7 +76,7 @@
               </ul>
             </li>
             <li class="divider"></li>
-            <li class="has-form">
+            <li class="has_form">
               <div class="search">
                 <div class="row collapse">
                   <div class="small-8 columns">
@@ -91,11 +91,11 @@
               </div>
             </li>
             <li class="divider show-for-small"></li>
-            <li class="has-form">
+            <li class="has-form guest_button">
               <% if current_user ==nil %>
                 <%= link_to 'Explore site as Guest', huddles_path, class: "button small radius success" %>
               <% else %>
-                <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button radius"%>
+                <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button radius success"%>
               <% end %>
             </li>
           </ul>
@@ -103,8 +103,8 @@
       </nav>
 
     <%- if notice !=  nil -%>
-        <div data-alert class="alert-box alert round row ">
-          <p class="notice small-6 large-centered columns"><%= notice %></p>
+        <div data-alert class="alert-box alert row ">
+          <p class="small-6 large-centered columns"><%= notice %></p>
         </div>
     <%- end -%>
 

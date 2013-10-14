@@ -29,8 +29,7 @@
     <div class="row">
       <h2>Open Huddles. Get in there!</h2>
       <%- @huddles.each do |huddle| -%>
-        <div class= "small-12 columns huddles">
-
+        <div class= "small-12 large-8 large-centered columns huddles left_align">
           <%- num_in_huddle = HuddleUser.where(huddle_id: huddle.id).count -%>
           <%- creator = User.where(id: huddle.creator).last -%>
           <%- if huddle.size_of_huddle == num_in_huddle.to_s -%>
@@ -38,9 +37,16 @@
           <%- end -%>
 
           <%- if creator.username != nil -%>
-            <h4><%= "Team captain: " %></h4><p><%= creator.username %></p>
-          <%- else -%>
-            <h4><%= "Team captain: " %></h4><p><%= creator.email %></p>
+
+            <div class="small-6 large-6 columns">
+              <p><%= "Team captain: " %></p>
+            </div>
+            <div class="small-6 large-6 columns">
+              <p><%= creator.username %></p>
+            <%- else -%>
+              <p><%= "Team captain: " %>
+              <p><%= creator.email %></p>
+            </div>
           <%- end -%>
 
           <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius" %>

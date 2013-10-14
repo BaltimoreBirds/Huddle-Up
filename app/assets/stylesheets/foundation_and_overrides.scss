@@ -185,7 +185,7 @@ $success-color: #4D6006;
 //
 
 // We use this to set the base for lots of form spacing and positioning styles
-$form-spacing: emCalc(18px);
+$form-spacing: emCalc(20px);
 
 // We use these to style the labels in different ways
 // $label-pointer: pointer;
@@ -195,7 +195,7 @@ $label-font-size: emCalc(18px);
 // $label-bottom-margin: emCalc(3px);
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
-$input-font-size: emCalc(18px);
+$input-font-size: emCalc(16px);
 // $input-bg-color: #fff;
 // $input-focus-bg-color: darken(#fff, 2%);
 // $input-border-color: darken(#fff, 20%);
@@ -971,8 +971,8 @@ $panel-bg: darken(#ffffff, 5%);
 $topbar-bg: white;
 
 // Height and margin
-// $topbar-height: 45px;
-// $topbar-margin-bottom: emCalc(30px);
+$topbar-height: 60px;
+$topbar-margin-bottom: emCalc(60px);
 
 // Control Input height for top bar
 // $topbar-input-height: 2.45em;
@@ -984,7 +984,7 @@ $topbar-title-font-size: emCalc(12px);
 // Set the link colors and styles for top-level nav
 $topbar-link-color: black;
 // $topbar-link-weight: bold;
-// $topbar-link-font-size: emCalc(13px);
+$topbar-link-font-size: emCalc(16px);
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: white;
