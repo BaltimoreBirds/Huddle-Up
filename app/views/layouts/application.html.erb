@@ -81,7 +81,7 @@
                 <div class="row collapse">
                   <div class="small-8 columns">
                     <%= form_for :search, method: :get, url: locations_path, class: "search-input" do |form| %>
-                      <%= form.text_field :value, placeholder: "Search by Zipcode" %>
+                      <%= form.text_field :value, placeholder: @current_location_by_ip %>
                   </div>
                   <div class="small-4 columns">
                       <%= form.submit 'Search', class: "button radius" %>
@@ -111,6 +111,16 @@
     <%= yield %>
 </div>
     <%= javascript_include_tag "application" %>
+    <script>
+      $(function() {
+        if (_.isEmpty($('#search_value').attr('placeholder'))) {
+          var currentLocation = new ExampleApp.CurrentLocation();
+            currentLocation.getLocation(function(location) {
+        $('#search_value').attr('placeholder', location);
+            })
+        }
+    });
+    </script>
     <%= yield :extra_footer %>
   </body>
 </html>
