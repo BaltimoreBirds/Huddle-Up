@@ -62,10 +62,8 @@ class Location < ActiveRecord::Base
   validates_presence_of :state
   validates_presence_of :postal
   validates_presence_of :court_name
-
   validates_numericality_of :postal
-  # validates_numericality_of :longitude //broken while geocode quota is spent.
-  # validates_numericality_of :latitude   //broken while geocode quota is spent.
+
 
   validates :state, inclusion: { in: STATES }
 

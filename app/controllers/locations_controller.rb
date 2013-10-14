@@ -1,9 +1,13 @@
 class LocationsController < ApplicationController
 
-
   def index
-    @locations = Location.all
+    @locations = if search_value.present?
+                   Location.near(search_value)
+                 else
+                   Location.all
+                 end
   end
+
 
   def show
     @location = Location.find(params[:id])
@@ -24,6 +28,12 @@ class LocationsController < ApplicationController
   def update
 
   end
+
+  def search_value
+    params[:search] && params[:search][:value]
+  end
+
+
 private
   def location_params
     params.require(:location).permit(:street, :city, :state, :postal, :court_name, :latitude, :longitude)
