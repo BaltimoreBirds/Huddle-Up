@@ -1,100 +1,114 @@
 
-  body{
-    width:100%;
-    height:100%;
-    padding-top:0%;
-    padding-bottom:0;
-    background: url('epicB-ballcourt.jpg') no-repeat top center  fixed;
-    background-size: 100%;
-  }
+body{
+  width:100%;
+  height:100%;
+  padding-top:0%;
+  padding-bottom:0;
+  background: url('epicB-ballcourt.jpg') no-repeat top center  fixed;
+  background-size: 100%;
+}
 
-  @font-face {
-    font-family: 'scream' ;
-    src: asset-url('scream.ttf', font);
-  }
-  .logo{
-    // font-family: 25px, 'scream';
-    text-align: center;
-    font-size:3em;
-  }
-  .sign_in_form{
-    text-align: center;
-    border-radius:4px;
-  }
+@font-face {
+  font-family: 'scream' ;
+  src: asset-url('scream.ttf', font);
+}
+.logo{
+  // font-family: 25px, 'scream';
+  text-align: center;
+  font-size:3em;
+}
+.sign_in_form{
+  text-align: center;
+  border-radius:4px;
+}
 
-  form {
-    text-align:center;
-    padding-bottom: 0;
-  }
+form {
+  text-align:center;
+  padding-bottom: 0;
+}
 
-  .alt_sign_in{
-    text-align: center;
-  }
-  .twitter{
-    position:relative;
-    top:6px;
-  }
-  .boxes{
-    padding-bottom:0;
-  }
+.alt_sign_in{
+  text-align: center;
+}
+.twitter{
+  position:relative;
+  top:6px;
+}
+.boxes{
+  padding-bottom:0;
+}
 
-  p{
-    color:white;
-    letter-spacing: 2px;
-  }
-  p a img{
-    position: relative;
-    top:10px;
-  }
+p{
+  color:white;
+  letter-spacing: 2px;
+}
+p a img{
+  position: relative;
+  top:10px;
+}
 
-  .active a{
+.active a{
 
-  }
-  .top-bar-section > ul > .divider {
-    border-left:none;
-    border-right:none;
-  }
+}
+.top-bar-section > ul > .divider {
+  border-left:none;
+  border-right:none;
+}
 
-  .huddles_framing{
-    text-align: center;
-    border-radius: 8px;
-  }
-  .top-bar .name h1 a {
-    color: black;
-  }
-  .panel{
-    background: rgba(255,255,255, .7);
-  }
-  .huddles{
-    text-align: center;
-    border-top: dotted black 2px;
-  }
-  .notice{
-    text-align: center;
-  }
-  .button{
-    background-color: #5B92CF;
-  }
-  a{
-    color: black;
-  }
-  p{
-    color:rgba(0,0,0,0.75);
-    font-size: emCalc(18px);
-    font-weight: bold;
-  }
-  .court_form{
-    padding-top: 25px;
-  }
-  .center_text{
-    text-align: center;
-  }
-  .registration_skill{
-    padding-bottom: 20px;
-  }
-  .guest_button{
-    color: #545F18;
-  }
+.huddles_framing{
+  text-align: center;
+  border-radius: 8px;
+}
+.top-bar .name h1 a {
+  color: black;
+}
+.panel{
+  background: rgba(255,255,255, .7);
+}
+.huddles{
+  text-align: center;
+  border-top: dotted black 2px;
+}
+.notice{
+  text-align: center;
+}
+.button{
+  background-color: #5B92CF;
+}
+a{
+  color: black;
+}
+p{
+  color:rgba(0,0,0,0.75);
+  font-size: emCalc(18px);
+  font-weight: bold;
+}
+.court_form{
+  padding-top: 25px;
+}
+.center_text{
+  text-align: center;
+}
+.registration_skill{
+  padding-bottom: 20px;
+}
+.guest_button{
+  color: #545F18;
+}
+.create_huddle{
+margin-top: 50px;
+}
+.left_align{
+  text-align: left
+}
+.link{
+  color: #5B92CF;
+}
+.framing{
+  border: 4px solid black;
+  border-radius: 8px;
+}
+
 @media only screen and (max-width: 768px) {
   body{
     width:100%;
@@ -105,12 +119,4 @@
     background-size: 100%;
     }
 }
-.create_huddle{
-  margin-top: 50px;
-}
-.left_align{
-  text-align: left
-}
-.link{
-  color: #5B92CF;
-}
+

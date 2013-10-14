@@ -2,6 +2,13 @@ $(document).ready(function(){
   $(".notice").fadeOut(4600);
   $(".alert-box").fadeOut(4600);
 
+  $('div div div div div.hover-focus').on('mouseenter','hover',function(){
+    $(this).css('.panel');
+
+  });
+
+
+
   function poll() {
     setTimeout(function() {
       somethingElse();

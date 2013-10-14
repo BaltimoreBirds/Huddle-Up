@@ -60,8 +60,8 @@
 
                       <ul class="dropdown">
                         <li><a href="#">Start a Huddle</a></li>
-                        <li><a href="#">Huddles you're in</a></li>
-                        <li><a href="#">Your Huddles</a></li>
+                        <li><a href="/huddles">Huddles you're in</a></li>
+                        <li><a href="/huddles">Your Huddles</a></li>
                       </ul>
                     </li>
                 <li><a href="#">Dropdown Level 1b</a></li>
@@ -81,7 +81,7 @@
                 <div class="row collapse">
                   <div class="small-8 columns">
                     <%= form_for :search, method: :get, url: locations_path, class: "search-input" do |form| %>
-                      <%= form.text_field :value, placeholder: "Search" %>
+                      <%= form.text_field :value, placeholder: "Search by Zipcode" %>
                   </div>
                   <div class="small-4 columns">
                       <%= form.submit 'Search', class: "button radius" %>

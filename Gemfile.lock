@@ -28,6 +28,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
+    area (0.10.0)
+      fastercsv (~> 1.5)
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.1.2)
@@ -63,6 +65,7 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    fastercsv (1.5.5)
     geocoder (1.1.8)
     hike (1.2.3)
     i18n (0.6.5)
@@ -177,11 +180,13 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  area
   capybara
   coffee-rails (~> 4.0.0)
   devise
   email_spec
   factory_girl_rails
+  fastercsv
   geocoder
   jbuilder (~> 1.2)
   jquery-rails

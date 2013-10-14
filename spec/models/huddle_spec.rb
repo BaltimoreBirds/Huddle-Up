@@ -15,18 +15,41 @@ describe Huddle do
 
   it{should have_many(:users)}
 
-  it' returns all members in the huddle' do
+  # it' returns all members in the huddle' do
+  #   user = FactoryGirl.create(:user)
+  #   user2 = FactoryGirl.create(:user, username: 'Shrek', email: 'Shrek@aol.com')
+  #   huddle_creator = FactoryGirl.create(:user, email: 'mikeswanson12@msn.com')
+  #   huddle = FactoryGirl.create(:huddle, creator: huddle_creator.id)
+  #   huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
+  #   huddle_user = FactoryGirl.create(:huddle_user, user_id: user2.id, huddle_id: huddle.id)
+  #   huddle_member = User.where(id: huddle.huddle_users.first.user_id)
+
+  #   expect(huddle.huddle_members).to_not be_nil
+  #   expect(huddle.huddle_members).to be_an(Array)
+  #   expect(huddle.huddle_members).to eq(['Jahsprout', 'Shrek'])
+
+  # end
+
+  it'returns all pending huddles a user is in' do
     user = FactoryGirl.create(:user)
-    user2 = FactoryGirl.create(:user, username: 'Shrek', email: 'Shrek@aol.com')
-    huddle_creator = FactoryGirl.create(:user, email: 'mikeswanson12@msn.com')
-    huddle = FactoryGirl.create(:huddle, creator: huddle_creator.id)
-    huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
-    huddle_user = FactoryGirl.create(:huddle_user, user_id: user2.id, huddle_id: huddle.id)
-    huddle_member = User.where(id: huddle.huddle_users.first.user_id)
+    huddle = FactoryGirl.create(:huddle)
+    huddle_user = FactoryGirl.create(:huddle_user, user_id: user.id, huddle_id: huddle.id)
 
-    expect(huddle.huddle_members).to_not be_nil
-    expect(huddle.huddle_members).to be_an(Array)
-    expect(huddle.huddle_members).to eq(['Jahsprout', 'Shrek'])
-
+    expect(Huddle.current_users_huddle_finder(user)).to_not be_nil
+    expect(Huddle.current_users_huddle_finder(user)).to be_an(Array)
+    expect(Huddle.current_users_huddle_finder(user)).to eql([huddle])
   end
+
+  it'returns all pending huddles for user2 as well' do
+    user2 = FactoryGirl.create(:user)
+    huddle1 = FactoryGirl.create(:huddle, time_and_date: DateTime.tomorrow-1.hour)
+    huddle2 = FactoryGirl.create(:huddle, time_and_date: DateTime.tomorrow-30.minutes)
+    huddle_user = FactoryGirl.create(:huddle_user, user_id: user2.id, huddle_id: huddle2.id)
+    huddle_user = FactoryGirl.create(:huddle_user, user_id: user2.id, huddle_id: huddle1.id)
+
+    expect(Huddle.current_users_huddle_finder(user2)).to_not be_nil
+    expect(Huddle.current_users_huddle_finder(user2)).to be_an(Array)
+    expect(Huddle.current_users_huddle_finder(user2)).to eql([huddle1,huddle2])
+  end
+
 end
