@@ -42,7 +42,7 @@ class Huddle < ActiveRecord::Base
       currently_in = HuddleUser.where(user_id: user.id).order("huddle_id ASC")
       huddles = []
 
-      unless currently_in == nil
+      unless currently_in == []
         currently_in.each do |huddle_user|
             if (Huddle.where(id: huddle_user.huddle_id).first.time_and_date - DateTime.now) > 0
               huddles << Huddle.where(id: huddle_user.huddle_id).first

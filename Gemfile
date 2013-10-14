@@ -60,8 +60,7 @@ gem 'devise'
 gem 'active_model_serializers'
 
 gem 'geocoder'
-gem 'fastercsv'
-gem 'area'
+
 
 
 # gem 'jquery_datepicker'

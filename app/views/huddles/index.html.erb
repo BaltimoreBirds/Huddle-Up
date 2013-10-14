@@ -4,10 +4,10 @@
     <%= link_to "Create a new Huddle!", new_huddle_path, class: "button radius " %>
     <div class= "row">
       <div class="small-12 large-12 large-centered columns">
-        <p> Huddles Your Currently In</p>
         <%-if current_user != nil %>
           <%- currently_in = Huddle.current_users_huddle_finder(current_user) %>
           <%- if currently_in != [] %>
+            <p> Huddles Your Currently In</p>
             <%- currently_in.each do |huddle| %>
               <div class="small-12 large-3 columns framing left_align hover-focus">
                 <%- creator = User.where(id: huddle.creator).last -%>

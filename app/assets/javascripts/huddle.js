@@ -3,7 +3,7 @@ $(document).ready(function(){
   $(".alert-box").fadeOut(4600);
 
   $('div div div div div.hover-focus').on('mouseenter','hover',function(){
-    $(this).css('.panel');
+    $(this).css();
 
   });
 
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   function somethingElse() {
     $.ajax({
-      url: "/huddles/9",
+      url: "/huddles/27",
       type: "GET",
       success: updateMembersList,
       dataType: "json",
