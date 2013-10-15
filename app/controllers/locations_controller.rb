@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
-  class_attribute :request_geocoding_gatherer
+  # class_attribute :request_geocoding_gatherer
 
-  self.request_geocoding_gatherer = RequestGeocodingGatherer
+  # self.request_geocoding_gatherer = RequestGeocodingGatherer
 
   def index
-    @current_location_by_ip = geocoded_request_information.current_location
+    # @current_location_by_ip = geocoded_request_information.current_location
 
     @locations = if search_value.present?
                    Location.near(search_value)

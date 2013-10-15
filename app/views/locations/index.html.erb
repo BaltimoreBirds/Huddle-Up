@@ -3,37 +3,16 @@
     <h4>Locations</h4>
 
     <div id="map" style="height: 400px;"></div>
+    <%if false %>
       <ul class="locations">
         <% @locations.each do |location| %>
           <%= render location %>
         <% end %>
 
       </ul>
-
-      <% content_for :javascript do %>
-        <script type="text/javascript"
-          src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
-
-        <%= javascript_tag do %>
-          $(function() {
-            var mapper = new ExampleApp.Mapper('#map');
-
-            $('[data-latitude]').each(function(index, element) {
-              mapper.addCoordinates(
-                $(element).attr('data-latitude'),
-                $(element).attr('data-longitude')
-              );
-            });
-
-            mapper.render();
-          });
-        <% end %>
-
-
-      <% end %>
+    <% end %>
   </div>
 </div>
-
 
 <div class="row">
 <%- @locations.each do |location| -%>
@@ -69,4 +48,38 @@
 <%- end -%>
 </div>
 
+      <% content_for :javascript do %>
+        <script type="text/javascript"
+          src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
+
+        <%= javascript_tag do %>
+          $(function() {
+            var mapper = new ExampleApp.Mapper('#map');
+
+            $('[data-latitude]').each(function(index, element) {
+              mapper.addCoordinates(
+                $(element).attr('data-latitude'),
+                $(element).attr('data-longitude')
+              );
+            });
+
+            mapper.render();
+          });
+
+        <% end %>
+
+
+      <% end %>
+<%= javascript_include_tag "application" %>
+<script>
+$(function() {
+  if (_.isEmpty($('#search_value').attr('placeholder'))) {
+    var currentLocation = new ExampleApp.CurrentLocation();
+    currentLocation.getLocation(function(location) {
+      $('#search_value').attr('placeholder', location);
+    })
+  }
+});
+
+</script>
 
