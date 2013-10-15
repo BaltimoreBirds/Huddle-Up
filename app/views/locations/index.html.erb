@@ -1,5 +1,41 @@
+<div class="row">
+  <div class="small-12 large-12 large-centered columns panel huddles_framing">
+    <h4>Locations</h4>
 
-<h4>Locations</h4>
+    <div id="map" style="height: 400px;"></div>
+      <ul class="locations">
+        <% @locations.each do |location| %>
+          <%= render location %>
+        <% end %>
+
+      </ul>
+
+      <% content_for :javascript do %>
+        <script type="text/javascript"
+          src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
+
+        <%= javascript_tag do %>
+          $(function() {
+            var mapper = new ExampleApp.Mapper('#map');
+
+            $('[data-latitude]').each(function(index, element) {
+              mapper.addCoordinates(
+                $(element).attr('data-latitude'),
+                $(element).attr('data-longitude')
+              );
+            });
+
+            mapper.render();
+          });
+        <% end %>
+
+
+      <% end %>
+  </div>
+</div>
+
+
+<div class="row">
 <%- @locations.each do |location| -%>
   <div class="row panel huddles_framing">
     <div class= "small-12 large-6 columns left_align">
@@ -31,4 +67,6 @@
     </div>
   </div>
 <%- end -%>
+</div>
+
 

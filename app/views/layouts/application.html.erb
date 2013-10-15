@@ -109,8 +109,10 @@
     <%- end -%>
 
     <%= yield %>
-</div>
+  </div>
+
     <%= javascript_include_tag "application" %>
+    <%= render '/layouts/javascript' %>
     <script>
       $(function() {
         if (_.isEmpty($('#search_value').attr('placeholder'))) {
@@ -119,8 +121,10 @@
         $('#search_value').attr('placeholder', location);
             })
         }
-    });
+      });
     </script>
+
+
     <%= yield :extra_footer %>
   </body>
 </html>

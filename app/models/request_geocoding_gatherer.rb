@@ -6,7 +6,7 @@ class RequestGeocodingGatherer
 
   def current_location
     if city && state
-      [city, state].join ', '
+      [city, state].join(', ')
     else
       ''
     end
