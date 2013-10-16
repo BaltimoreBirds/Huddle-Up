@@ -76,15 +76,17 @@
               </ul>
             </li>
             <li class="divider"></li>
+
             <li class="has_form">
               <div class="search">
                 <div class="row collapse">
                   <div class="small-8 columns">
                     <%= form_for :search, method: :get, url: locations_path, class: "search-input" do |form| %>
                       <%= form.text_field :value, placeholder: ' ', id: "search_value" %>
-                  </div>
-                  <div class="small-4 columns">
-                      <%= form.submit 'Search', class: "button radius" %>
+
+                      <div class="small-4 columns">
+                        <%= form.submit 'Search', class: "button radius" %>
+                      </div>
                     <% end %>
                   </div>
                 </div>

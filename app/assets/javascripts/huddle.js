@@ -16,8 +16,10 @@ $(document).ready(function(){
   }
 
   function somethingElse() {
+    var url = "/huddles/" + window.huddleId;
+
     $.ajax({
-      url: "/huddles/27",
+      url: url,
       type: "GET",
       success: updateMembersList,
       dataType: "json",

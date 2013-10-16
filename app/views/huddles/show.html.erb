@@ -6,7 +6,8 @@
       <h1>Huddle Details</h1>
 
       <p>This game is being played at:</p>
-      <%= @huddle.location.court_name %>
+      <%= binding.pry %>
+      <%=link_to "#{@huddle.location.court_name}", @huddle.location %>
 
       <div class="row">
           <p>Skill Level</p>
@@ -55,3 +56,6 @@
   </div>
 </div>
 
+<script>
+  window.huddleId = <%= @huddle.id %>;
+</script>

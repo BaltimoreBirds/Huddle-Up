@@ -546,10 +546,10 @@ $input-font-size: emCalc(16px);
 // $joyride-tip-padding: emCalc(18px) emCalc(20px) emCalc(24px);
 // $joyride-tip-border: solid 1px #555;
 // $joyride-tip-radius: 4px;
-// $joyride-tip-position-offset: 22px;
+$joyride-tip-position-offset: 100px;
 
 // Here, we're setting the tip dont styles
-// $joyride-tip-font-color: #fff;
+// $joyride-tip-font-color: white;
 // $joyride-tip-font-size: emCalc(14px);
 // $joyride-tip-header-weight: bold;
 

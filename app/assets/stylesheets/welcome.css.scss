@@ -47,7 +47,7 @@ p{
   color:white;
   letter-spacing: 3px;
 }
-p a img{
+p a img.oauth{
   position: relative;
   top:10px;
 }
@@ -117,6 +117,9 @@ margin-top: 50px;
 }
 .right_align{
   align: right;
+}
+.joyride-content-wrapper p {
+  color: white;
 }
 @media only screen and (max-width: 768px) {
   body{

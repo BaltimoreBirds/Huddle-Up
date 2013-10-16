@@ -6,8 +6,7 @@ class @ExampleApp.Mapper
     @bounds = new ExampleApp.MapBounds
 
   addCoordinates: (latitude, longitude) ->
-
-    if !_.isEmpty(latitude) and !_.isEmpty(longitude)
+    if latitude and longitude
       @bounds.add(latitude, longitude)
 
   render: =>
