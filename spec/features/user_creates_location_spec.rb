@@ -53,12 +53,13 @@ feature'user creates locations', %Q{
     find("input[placeholder='City']").set "Columbia"
     find("input[placeholder='State']").set "MD"
     find("input[placeholder='Postal code']").set "potato"
-    find("input[placeholder='Court name']").set "Columbia Gym"
+    find("input[placeholder='Court name']").set " "
     click_button "Add this court location"
 
     expect(Location.all.count).to eql(prev_count)
     expect(page).to have_content("Complete the required fields to add a court")
-    expect(page).to have_content("Error")
+    expect(page).to have_content("can't be blank")
+    expect(page).to have_content("is not a number")
   end
 
 end
