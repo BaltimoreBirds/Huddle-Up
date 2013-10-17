@@ -6,6 +6,6 @@ FactoryGirl.define do
     size_of_huddle 2
     creator 1
     location_id 1
-    time_and_date DateTime.tomorrow
+    time_and_date DateTime.now.tomorrow
   end
 end

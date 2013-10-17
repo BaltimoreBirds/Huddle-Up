@@ -21,6 +21,7 @@ feature'user creates a new huddle', %Q{
 
 
     user = FactoryGirl.create(:user)
+    court = FactoryGirl.create(:location, court_name: 'Martin Road Park')
     prev_count = Huddle.all.count
     visit new_user_session_path
 
@@ -29,10 +30,10 @@ feature'user creates a new huddle', %Q{
     click_link 'Create a new Huddle!'
     expect(page).to have_content("Huddle Up!")
 
-    expect(page).to have_content("How many people are you looking to play with?")
+    expect(page).to have_content("Location not in the database?")
     find("input[placeholder='Desired size of the Huddle']").set "2"
     choose "Casual"
-    find("input[placeholder='Court name']").set "Columbia Gym"
+    select 'Martin Road Park', from: 'huddle_location_id'
     select '2014', from: 'huddle_time_and_date_1i'
     select 'October', from: 'huddle_time_and_date_2i'
     select '12', from: 'huddle_time_and_date_3i'

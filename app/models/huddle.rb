@@ -37,6 +37,14 @@ class Huddle < ActiveRecord::Base
   #   member_array
   # end
 
+  def huddle_full?
+    if self.size_of_huddle.to_i == self.users.count
+       return "This Huddle is full"
+    else
+      return false
+    end
+  end
+
   class <<self
     def current_users_huddle_finder(user)
       currently_in = HuddleUser.where(user_id: user.id).order("huddle_id ASC")
