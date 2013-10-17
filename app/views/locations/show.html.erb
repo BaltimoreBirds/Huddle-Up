@@ -1,17 +1,12 @@
 <%= Location %>
-
-
   <p>
     <strong>Address</strong>
     <%= @location.street %><%= @location.city %><%= @location.state %><%= @location.postal %>
   </p>
-
   <p>
     <strong>Court Name</strong>
     <%= @location.court_name %>
   </p>
-
-
 <h3>Nearby locations</h3>
 <ul>
 <% for location in @location.nearbys(20) %>

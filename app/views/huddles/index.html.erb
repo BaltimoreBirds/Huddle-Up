@@ -9,15 +9,16 @@
             <p> Huddles Your Currently In</p>
             <%- currently_in.each do |huddle| %>
               <div class="small-12 large-3 columns framing left_align hover-focus">
-                <%- creator = User.where(id: huddle.creator).last -%>
                 <p>City:</p><%= huddle.location.city %>
                 <p>Court:</p><%= huddle.location.court_name %>
-                <%-creator = User.where(id: huddle.creator).first-%>
-                  <%- if creator.username != nil -%>
-                    <p> Team captain: </p><%= creator.username %>
+                  <%- if huddle.users.where(id: huddle.creator).first.username != nil -%>
+                    <p> Team captain: </p><%= huddle.users.where(id: huddle.creator).first.username %>
                   <%- else -%>
-                    <p>Team captain: </p><%= creator.email %>
+                    <p>Team captain: </p><%= huddle.users.where(id: huddle.creator).first.email %>
                   <%- end -%>
+                  <%if huddle.huddle_full? %>
+                    <p>This Huddle is full</p>
+                  <% end %>
                 <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius center_text" %>
               </div>
             <%- end %>
@@ -29,26 +30,25 @@
       <h2>Open Huddles. Get in there!</h2>
       <%- @huddles.each do |huddle| -%>
         <div class= "small-12 large-8 large-centered columns huddles left_align">
-          <%- num_in_huddle = HuddleUser.where(huddle_id: huddle.id).count -%>
-          <%- creator = User.where(id: huddle.creator).last -%>
-          <%- if huddle.size_of_huddle == num_in_huddle.to_s -%>
+          <%- if huddle.huddle_full? -%>
             <p> This Huddle is full </p>
           <%- end -%>
-          <%- if creator.username != nil -%>
+          <%- if huddle.users.where(id: huddle.creator).first.username != nil -%>
             <div class="small-6 large-6 columns">
               <p><%= "Team captain: " %></p>
             </div>
             <div class="small-6 large-6 columns">
-              <p><%= creator.username %></p>
+              <p><%= huddle.users.where(id: huddle.creator).first.username %></p>
             <%- else -%>
               <p><%= "Team captain: " %>
-              <p><%= creator.email %></p>
+              <p><%= huddle.users.where(id: huddle.creator).first.email %></p>
             </div>
           <%- end -%>
-
+         </div>
           <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius" %>
-        </div>
+
       <%- end -%>
+    </div>
     </div>
   </div>
 </div>

@@ -52,4 +52,17 @@ describe Huddle do
     expect(Huddle.current_users_huddle_finder(user2)).to eql([huddle1,huddle2])
   end
 
+  it'returns The Huddle is full if a huddle is full' do
+    user2 = FactoryGirl.create(:user, email: 'johnjacobjingleheimerschmidt@aol.com')
+    user = FactoryGirl.create(:user)
+    huddle = FactoryGirl.create(:huddle, size_of_huddle: 4)
+    huddle1 = FactoryGirl.create(:huddle, size_of_huddle: 2)
+    huddle_user2 = FactoryGirl.create(:huddle_user, user_id: user2.id, huddle_id: huddle1.id)
+    huddle_user = FactoryGirl.create(:huddle_user, user_id: user.id, huddle_id: huddle1.id)
+
+
+    expect(huddle1.huddle_full?).to be_an(String)
+    expect(huddle.huddle_full?).to eql(false)
+    expect(huddle1.huddle_full?).to eql("This Huddle is full")
+  end
 end

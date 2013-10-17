@@ -29,7 +29,7 @@
             <% if current_user != nil %>
               <h1><a class= "logo" href="/huddles">Huddle Up </a></h1>
             <%else%>
-              <h1><a class= "logo" href="/users/sign_in">Huddle Up </a></h1>
+              <h1><a class= "logo" href="/users/sign_in">Huddle Up</a></h1>
             <%end%>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -71,8 +71,8 @@
                 <li><a href="#">Dropdown Level 1d</a></li>
                 <li><a href="#">Dropdown Level 1e</a></li>
                 <li><a href="#">Dropdown Level 1f</a></li>
-                <li class="divider"></li> -->
-              <!--   <li><a href="#">See all &rarr;</a></li> -->
+                <li class="divider"></li>
+                <li><a href="#">See all &rarr;</a></li> -->
               </ul>
             </li>
             <li class="divider"></li>
@@ -83,10 +83,9 @@
                   <div class="small-8 columns">
                     <%= form_for :search, method: :get, url: locations_path, class: "search-input" do |form| %>
                       <%= form.text_field :value, placeholder: ' ', id: "search_value" %>
-
-                      <div class="small-4 columns">
-                        <%= form.submit 'Search', class: "button radius" %>
-                      </div>
+                  </div>
+                  <div class="small-4 columns">
+                    <%= form.submit 'Search', class: "button radius" %>
                     <% end %>
                   </div>
                 </div>

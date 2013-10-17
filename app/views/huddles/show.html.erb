@@ -6,7 +6,6 @@
       <h1>Huddle Details</h1>
 
       <p>This game is being played at:</p>
-      <%= binding.pry %>
       <%=link_to "#{@huddle.location.court_name}", @huddle.location %>
 
       <div class="row">
@@ -15,9 +14,8 @@
       </div>
 
       <div class="row ">
-          <%- num_of_ballers = HuddleUser.where(huddle_id: @huddle.id).count -%>
           <div class="small-12 large-4 columns">
-            <%= num_of_ballers %>
+            <%= @huddle.users.count %>
           </div>
           <div class="small-12 large-4 columns">
             <p>of</p>
@@ -40,7 +38,7 @@
       </div>
 
       <div class= "row">
-        <%- if @huddle.size_of_huddle == num_of_ballers.to_s -%>
+        <%- if @huddle.size_of_huddle.to_i == @huddle.users.count -%>
           <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
         <%- else -%>
           <%= form_for @huddle do |f| %>
