@@ -7,10 +7,15 @@
     <%= simple_form_for @location do |f| %>
 
         <%= f.text_field :street, placeholder: "Street" %>
+        <%= f.error :street, class: "error" %>
         <%= f.text_field :city, placeholder: "City" %>
+        <%= f.error :city, class: "error" %>
         <%= f.text_field :state, placeholder: "State" %>
+        <%= f.error :state, class: "error" %>
         <%= f.text_field :postal, placeholder: "Postal code" %>
+        <%= f.error :postal, class: "error" %>
         <%= f.text_field :court_name, placeholder: "Court name" %>
+        <%= f.error :court_name, class: "error" %>
         <%= f.submit 'Add this court location', class: "button radius" %>
 
 

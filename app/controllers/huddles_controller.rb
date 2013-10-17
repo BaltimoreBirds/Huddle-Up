@@ -13,7 +13,6 @@ class HuddlesController < ApplicationController
 
   def show
     @huddle = Huddle.find(params[:id])
-
     respond_with @huddle
   end
 

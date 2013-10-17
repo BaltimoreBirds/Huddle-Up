@@ -16,8 +16,9 @@ So that I may be decide whether to register
 #    which redirects to registration pageh5
 
   scenario'guest views content, tries to join huddle.' do
+    location = FactoryGirl.create(:location, id: 1)
     huddle_creator = FactoryGirl.create(:user, email: 'mikeswanson12@msn.com')
-    huddle = FactoryGirl.create(:huddle, creator: huddle_creator.id)
+    huddle = FactoryGirl.create(:huddle, creator: huddle_creator.id, location_id: 1)
     huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
     prev_count = HuddleUser.where(huddle_id: huddle.id).count
 

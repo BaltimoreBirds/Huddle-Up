@@ -29,7 +29,7 @@
             <% if current_user != nil %>
               <h1><a class= "logo" href="/huddles">Huddle Up </a></h1>
             <%else%>
-              <h1><a class= "logo" href="/users/sign_in">Huddle Up </a></h1>
+              <h1><a class= "logo" href="/users/sign_in">Huddle Up</a></h1>
             <%end%>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -71,31 +71,32 @@
                 <li><a href="#">Dropdown Level 1d</a></li>
                 <li><a href="#">Dropdown Level 1e</a></li>
                 <li><a href="#">Dropdown Level 1f</a></li>
-                <li class="divider"></li> -->
-              <!--   <li><a href="#">See all &rarr;</a></li> -->
+                <li class="divider"></li>
+                <li><a href="#">See all &rarr;</a></li> -->
               </ul>
             </li>
             <li class="divider"></li>
-            <li class="has-form">
+
+            <li class="has_form">
               <div class="search">
                 <div class="row collapse">
                   <div class="small-8 columns">
                     <%= form_for :search, method: :get, url: locations_path, class: "search-input" do |form| %>
-                      <%= form.text_field :value, placeholder: "Search by Zipcode" %>
+                      <%= form.text_field :value, placeholder: ' ', id: "search_value" %>
                   </div>
                   <div class="small-4 columns">
-                      <%= form.submit 'Search', class: "button radius" %>
+                    <%= form.submit 'Search', class: "button radius" %>
                     <% end %>
                   </div>
                 </div>
               </div>
             </li>
             <li class="divider show-for-small"></li>
-            <li class="has-form">
+            <li class="has-form guest_button">
               <% if current_user ==nil %>
                 <%= link_to 'Explore site as Guest', huddles_path, class: "button small radius success" %>
               <% else %>
-                <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button radius"%>
+                <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button radius success"%>
               <% end %>
             </li>
           </ul>
@@ -103,14 +104,18 @@
       </nav>
 
     <%- if notice !=  nil -%>
-        <div data-alert class="alert-box alert round row ">
-          <p class="notice small-6 large-centered columns"><%= notice %></p>
+        <div data-alert class="alert-box alert row ">
+          <p class="small-6 large-centered columns"><%= notice %></p>
         </div>
     <%- end -%>
 
     <%= yield %>
-</div>
+  </div>
+
     <%= javascript_include_tag "application" %>
+    <%= render '/layouts/javascript' %>
+
+
     <%= yield :extra_footer %>
   </body>
 </html>

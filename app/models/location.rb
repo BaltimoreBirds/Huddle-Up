@@ -62,6 +62,7 @@ class Location < ActiveRecord::Base
   validates_presence_of :state
   validates_presence_of :postal
   validates_presence_of :court_name
+  # validates_uniqueness_of :court_name
   validates_numericality_of :postal
 
 
