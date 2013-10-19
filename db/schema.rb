@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20131013012822) do
   enable_extension "plpgsql"
 
   create_table "huddle_users", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "huddle_id"
+    t.integer  "user_id",    null: false
+    t.integer  "huddle_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,19 +30,20 @@ ActiveRecord::Schema.define(version: 20131013012822) do
     t.datetime "updated_at"
     t.integer  "creator",        null: false
     t.datetime "time_and_date",  null: false
+    t.integer  "user_id"
     t.integer  "location_id"
   end
 
   create_table "locations", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "street",     null: false
+    t.integer  "postal",     null: false
     t.string   "court_name", null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "street",     null: false
     t.string   "city",       null: false
     t.string   "state",      null: false
-    t.integer  "postal",     null: false
   end
 
   create_table "users", force: true do |t|
