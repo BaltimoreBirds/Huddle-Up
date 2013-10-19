@@ -33,7 +33,7 @@ class HuddlesController < ApplicationController
   end
 
   def update
-    if current_user != nil
+    if params[:commit]== 'Join this Huddle'
       @huddle = Huddle.find(params[:id])
 
       respond_to do |format|
@@ -47,10 +47,11 @@ class HuddlesController < ApplicationController
           format.json { render json: @huddle.errors, status: :unprocessable_entity }
         end
       end
+    elsif params[:commit]== 'Leave this Huddle?'
 
-
-    else
-      redirect_to root_path, notice: 'You must be signed in to do that.'
+      @huddle= Huddle.find(params[:id])
+      HuddleUser.where(user_id: current_user.id, huddle_id: @huddle.id).destroy_all
+      redirect_to :back, notice: "You have left this Huddle."
     end
   end
 

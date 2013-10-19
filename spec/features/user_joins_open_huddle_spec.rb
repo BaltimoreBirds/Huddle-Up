@@ -64,24 +64,5 @@ let(:huddle){FactoryGirl.create(:huddle, creator: huddle_creator.id, location_id
     expect(huddle.users.where(id: user2.id).count).to eql(0)
   end
 
-  scenario'registered user tries to join a huddle he is already in' do
-    huddle = FactoryGirl.create(:huddle, size_of_huddle: 3, creator: huddle_creator.id)
-    huddle_user = FactoryGirl.create(:huddle_user, user_id: huddle_creator.id, huddle_id: huddle.id)
-    huddle_user2 = FactoryGirl.create(:huddle_user, user_id: user.id, huddle_id: huddle.id)
-    location
-    sign_in_as(user)
-    prev_count = HuddleUser.where(huddle_id: huddle.id).count
-    expect(page).to have_content('Open Huddles')
-    first(:link, 'Explore this Huddle').click
-
-    expect(page).to have_content('Huddle Details')
-    expect(page).to have_content(huddle.location.court_name)
-    expect(page).to have_content(huddle.skill_level)
-    click_button 'Join This Huddle!'
-
-    expect(page).to have_content('You\'re already in this Huddle.')
-    expect(HuddleUser.where(huddle_id: huddle.id).count).to eql(prev_count)
-    expect(HuddleUser.where(user_id: user.id, huddle_id: huddle.id).count).to eql(1)
-  end
 
 end

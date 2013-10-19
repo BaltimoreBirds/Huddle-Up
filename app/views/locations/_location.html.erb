@@ -1,14 +1,32 @@
 <%= content_tag_for :li, location,
   data: { latitude: location.latitude, longitude: location.longitude } do %>
-  <header>
-    <h1 data-role="name"><%= location.court_name %></h1>
-    <% if location.respond_to?(:distance) %>
-      <h2 data-role="distance"><%= location.distance.round(1) %> mi</h2>
-    <% end %>
-  </header>
-
-    <section class="location-info">
-      <p data-role="address"><%= location.address %></p><br>
-    </section>
+  <div class="row">
+  <div class="row panel huddles_framing">
+    <div class= "small-12 large-6 columns left_align">
+      <p>
+        <strong>Court Name:</strong><br>
+        <%= location.court_name %>
+      </p>
+      <% if location.respond_to?(:distance) %>
+        <p data-role="distance"><%= location.distance.round(1) %> miles away</p>
+      <% end %>
+      <p>
+        <strong>City:</strong>
+        <%= location.city %>
+      </p>
+      <p>
+        <strong>State:</strong>
+        <%= location.state %>
+      </p>
+    </div>
+    <div class="small-12 large-6 columns right_align">
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x250&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
+    </div>
+    <div class="row">
+      <p>
+        <%= link_to "More Info about #{location.court_name}", location, method: :get, class: "link" %>
+      </p>
+    </div>
+  </div>
 
 <% end %>

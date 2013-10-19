@@ -38,15 +38,26 @@
       </div>
 
       <div class= "row">
-        <%- if @huddle.size_of_huddle.to_i == @huddle.users.count -%>
-          <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
-        <%- else -%>
-          <%= form_for @huddle do |f| %>
-            <div class="actions">
-              <%= f.submit 'Join This Huddle!', class: "button radius" %>
-            </div>
-          <% end %>
-        <%- end -%>
+
+        <%if current_user != nil %>
+          <%- if HuddleUser.where(user_id: current_user.id, huddle_id: @huddle.id) != [] %>
+             <%= form_for @huddle do |f| %>
+              <div class="actions">
+                <%= f.submit 'Leave this Huddle?', class: "button radius" %>
+              </div>
+            <% end %>
+          <%- elsif @huddle.size_of_huddle.to_i == @huddle.users.count -%>
+            <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
+          <%- else -%>
+            <%= form_for @huddle, url: {action: 'update'} do |f| %>
+              <div class="actions">
+                <%= f.submit 'Join This Huddle!', class: "button radius" %>
+              </div>
+            <% end %>
+          <%- end -%>
+        <% else %>
+          <%= link_to 'You must sign in to join', root_path, class: "button radius" %>
+        <% end %>
       </div>
 
 
