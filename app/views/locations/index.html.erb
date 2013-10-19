@@ -3,47 +3,17 @@
     <h4>Locations</h4>
 
     <div id="map" style="height: 400px;"></div>
-      <ul class="locations">
 
-        <% @locations.each do |location| %>
-          <%= render location %>
-        <% end %>
-      </ul>
   </div>
 </div>
+  <ul class="locations">
 
-<div class="row">
-<%- @locations.each do |location| -%>
-  <div class="row panel huddles_framing">
-    <div class= "small-12 large-6 columns left_align">
-      <p>
-        <strong>Court Name:</strong><br>
-        <%= location.court_name %>
-      </p>
+    <% @locations.each do |location| %>
+      <%= render location %>
+    <% end %>
+  </ul>
 
-      <p>
-        <strong>City:</strong>
-        <%= location.city %>
-      </p>
-      <p>
-        <strong>State:</strong>
-        <%= location.state %>
-      </p>
 
-      <!-- google maps location details -->
-      <!-- Like the red baloons  -->
-      <!-- Add Court Descriptions  -->
-    </div>
-    <div class="small-12 large-6 columns right_align">
-      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x250&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
-    </div>
-    <div class="row">
-      <p>
-        <%= link_to "More Info about #{location.court_name}", location, method: :get, class: "link" %>
-      </p>
-    </div>
-  </div>
-<%- end -%>
   <ol class="joyride-list" data-joyride>
     <li data-id="map" data-class="custom so-awesome" data-text="Next">
       <h4>Street View</h4>
