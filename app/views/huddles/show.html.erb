@@ -49,7 +49,7 @@
           <%- elsif @huddle.size_of_huddle.to_i == @huddle.users.count -%>
             <p> This Huddle is full. </p><%= link_to 'Check out different Huddles?', huddles_path, class: "button radius" %>
           <%- else -%>
-            <%= form_for @huddle, url: {action: 'update'} do |f| %>
+            <%= form_for @huddle do |f| %>
               <div class="actions">
                 <%= f.submit 'Join This Huddle!', class: "button radius" %>
               </div>

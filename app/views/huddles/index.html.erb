@@ -11,10 +11,10 @@
               <div class="small-12 large-3 columns huddles_framing">
                 <p>City:</p><%= huddle.location.city %>
                 <p>Court:</p><%= huddle.location.court_name %>
-                <%- if huddle.users.where(id: huddle.creator).first.username != nil -%>
-                  <p> Team captain: </p><%= huddle.users.where(id: huddle.creator).first.username %>
+                <%- if User.where(id: huddle.creator).first.username != nil -%>
+                  <p> Created by: </p><%= User.where(id: huddle.creator).first.username %>
                 <%- else -%>
-                  <p>Team captain: </p><%= huddle.users.where(id: huddle.creator).first.email %>
+                  <p> Created by: </p><%= User.where(id: huddle.creator).first.username %>
                 <%- end -%>
                 <%if huddle.huddle_full? %>
                   <p>This Huddle is full</p>

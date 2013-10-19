@@ -33,7 +33,7 @@ class HuddlesController < ApplicationController
   end
 
   def update
-    if params[:commit]== 'Join this Huddle'
+    if params[:commit]== 'Join This Huddle!'
       @huddle = Huddle.find(params[:id])
 
       respond_to do |format|
@@ -51,7 +51,11 @@ class HuddlesController < ApplicationController
 
       @huddle= Huddle.find(params[:id])
       HuddleUser.where(user_id: current_user.id, huddle_id: @huddle.id).destroy_all
-      redirect_to :back, notice: "You have left this Huddle."
+      respond_to do |format|
+        format.html{redirect_to :back, notice: "You have left this Huddle."}
+        format.js
+        format.json{render json: @huddle}
+      end
     end
   end
 
