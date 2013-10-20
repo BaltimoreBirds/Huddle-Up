@@ -31,10 +31,20 @@ form {
   padding-top: 4px;
   // margin: auto;
 }
-
+ @font-face {
+  font-family: 'leaguegothic-regular-webfont';
+  src:url('leaguegothic-regular-webfont.eot');
+  src:url('leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('leaguegothic-regular-webfont.svg#icomoon') format('svg'),
+    url('leaguegothic-regular-webfont.woff') format('woff'),
+    url('leaguegothic-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 p{
   color:white;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
+  font-family: 'leaguegothic-regular-webfont';
 }
 .top-bar-section > ul > .divider {
   border-left:none;
