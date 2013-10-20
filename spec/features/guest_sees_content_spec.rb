@@ -24,7 +24,7 @@ So that I may be decide whether to register
 
     visit root_path
     find_button('Sign in')
-    click_link 'Explore site as Guest'
+    click_link 'Guest'
 
     click_link('Explore this Huddle')
     expect(page).to have_content('Huddle Details')
@@ -38,7 +38,7 @@ So that I may be decide whether to register
 
     visit root_path
     find_button('Sign in')
-    click_link 'Explore site as Guest'
+    click_link 'Guest'
 
     click_link('Create a new Huddle!')
     click_button('Create Huddle')

@@ -57,7 +57,7 @@ $success-color: #4D6006;
 // $include-html-alert-classes: $include-html-classes;
 // $include-html-nav-classes: $include-html-classes;
 // $include-html-label-classes: $include-html-classes;
-$include-html-panel-classes: $include-html-classes;
+// $include-html-panel-classes: $include-html-classes;
 // $include-html-pricing-classes: $include-html-classes;
 // $include-html-progress-classes: $include-html-classes;
 
@@ -231,7 +231,7 @@ $input-font-size: emCalc(16px);
 // $input-error-message-top: -($form-spacing) - emCalc(5px);
 // $input-error-message-font-size: emCalc(12px);
 // $input-error-message-font-weight: bold;
-// $input-error-message-font-color: #fff;
+$input-error-message-font-color: red;
 // $input-error-message-font-color-alt: #333;
 
 // We use these to build padding for buttons.
@@ -679,8 +679,8 @@ $panel-bg: darken(#ffffff, 5%);
 // $panel-border-color: darken($panel-bg, $panel-function-factor);
 
 // We use these to set default inner padding and bottom margin
-// $panel-margin-bottom: emCalc(20px);
-// $panel-padding: emCalc(20px);
+$panel-margin-bottom: emCalc(20px);
+$panel-padding: emCalc(20px);
 
 // We use these to set default font colors
 // $panel-font-color: #333;

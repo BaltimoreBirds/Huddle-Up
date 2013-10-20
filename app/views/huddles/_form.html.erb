@@ -45,12 +45,13 @@
   </div><br>
 
   <div class="row">
-    <div class="small-12 large-12 columns">
+    <div class="">
         <p> Date and Time: </p>
-      <div class="small-6 small-centered large-2 large-centered columns">
-         <%= f.datetime_select :time_and_date, ampm: true  %>
-         <%= f.error :time_and_date %>
-      </div>
+      <span>
+         <%= f.datetime_select :time_and_date, ampm: true %>
+      </span>
+      <%= f.error :time_and_date %>
+
     </div>
 
 

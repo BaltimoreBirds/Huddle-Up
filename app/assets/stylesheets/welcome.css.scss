@@ -50,14 +50,36 @@ p{
   background-color: white;
 }
 .huddles{
-  padding: 10px;
+  padding: 0px;
 }
 .panel{
   background: rgba(255,255,255, .95);
   $panel-border-size: 0px;
 }
-.hover_panel{
-  background: rgba(255,255,255, 1);
+select#huddle_time_and_date_1i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_2i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_3i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_4i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_5i{
+  display:inline;
+  height: 18px;
+  width: 100px;
 }
 .alert-box{
   text-align: center;
@@ -87,9 +109,9 @@ p{
 .registration_skill{
   padding-bottom: 20px;
 }
-.guest_button{
-  color: #545F18;
-  padding-top: 4px;
+li.has-form.guest_button a{
+  background-color: #545F18;
+  color: white;
 }
 .create_huddle{
 margin-top: 50px;
