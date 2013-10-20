@@ -139,6 +139,18 @@ margin-top: 50px;
 .form_padding{
   margin-bottom: 20px;
 }
+select#huddle_location_id{
+  background-color: white;
+  height: 60px;
+  font-size: 14px;
+}
+.padder{
+  padding-bottom: 20px;
+}
+.add_location_button{
+  display: inline;
+  color: light-blue;
+}
 @media only screen and (max-width: 768px) {
   body{
     width:100%;

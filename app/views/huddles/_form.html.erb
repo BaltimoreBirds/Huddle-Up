@@ -9,46 +9,53 @@
       </div>
     </div>
   </div>
-  <div class="small-12 large-6 large-centered columns">
-    <div class="large-centered columns court_form">
-      <div class="field">
+
+<div class="row">
+  <div class="small-12 large-8 large-centered columns panel huddles_framing">
+    <div class="row padder">
+      <div class="small-12 large-8 large-centered columns field">
         <%= f.collection_select :location_id,
           Location.all(order: 'court_name'), :id, :court_name, prompt: "Please select a location" %>
+        <%= f.error :location_id, class: "simple_form_errors" %>
       </div>
-      <%= f.error :location_id, class: "simple_form_errors" %>
+    </div>
+    <div class="row">
+      <div class="small-12 large-12 large-centered columns">
+        <p class="add_location_button">Location not in the database?</p>
+        <%= link_to 'Add it here', new_location_path, class: "add_location_button" %>
+      </div>
     </div>
   </div>
-  <span>
-    <p>Location not in the database?</p>
-    <%= link_to 'Add it here', new_location_path, class: "button radius small" %>
-  </span>
+</div>
 
   <div class="row form_padding">
-    <div class="small-12 large-8 large-centered columns">
-      <p> Skill Level: </p>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
-        <%= f.label :skill_level_Beginner, "Beginner" %>
-      </div>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Average", id:"Average" %>
-        <%= f.label :skill_level_Average, "Average" %>
-      </div>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
-        <%= f.label :skill_level, "Casual" %>
-      </div>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
-        <%= f.label :skill_level_Advanced, "Advanced" %>
+    <div class="small-12 large-8 large-centered columns panel huddles_framing">
+      <p> Skill Level </p>
+      <div class="row">
+        <div class="small-6 large-3 columns">
+          <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
+          <%= f.label :skill_level_Beginner, "Beginner" %>
+        </div>
+        <div class="small-6 large-3 columns padder">
+          <%= f.radio_button :skill_level, "Average", id:"Average" %>
+          <%= f.label :skill_level_Average, "Average" %>
+        </div>
+        <div class="small-6 large-3 columns padder">
+          <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
+          <%= f.label :skill_level, "Casual" %>
+        </div>
+        <div class="small-6 large-3 columns padder">
+          <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
+          <%= f.label :skill_level_Advanced, "Advanced" %>
+        </div>
+        <%= f.error :skill_level, class: "simple_form_errors" %>
       </div>
     </div>
-    <%= f.error :skill_level, class: "simple_form_errors" %>
   </div><br>
 
   <div class="row form_padding">
-    <div class="">
-        <p> Date and Time: </p>
+    <div class="small-12 large-8 large-centered columns panel huddles_framing">
+        <p> Date and Time </p>
       <span>
          <%= f.datetime_select :time_and_date, ampm: true %>
       </span>
