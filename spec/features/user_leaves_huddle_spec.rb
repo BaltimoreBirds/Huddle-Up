@@ -22,7 +22,7 @@ feature'user leaves a huddles theyre in', %Q{
 
 
     visit root_path
-    click_link 'Explore site as Guest'
+    click_link 'Guest'
 
     first(:link, 'Explore this Huddle').click
     expect(page).to have_content('You must sign in to join')
