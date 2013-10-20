@@ -132,6 +132,13 @@ margin-top: 50px;
 .joyride-content-wrapper p {
   color: white;
 }
+.simple_form_errors{
+  font-size: 20px;
+  color:red;
+}
+.form_padding{
+  margin-bottom: 20px;
+}
 @media only screen and (max-width: 768px) {
   body{
     width:100%;
