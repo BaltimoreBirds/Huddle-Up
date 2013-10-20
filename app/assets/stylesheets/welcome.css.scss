@@ -28,28 +28,13 @@ form {
 }
 .has_form{
   text-align: center;
-  padding-top: 6px;
-  margin: auto;
-}
-
-.alt_sign_in{
-  text-align: center;
-}
-.twitter{
-  position:relative;
-  top:6px;
-}
-.boxes{
-  padding-bottom:0;
+  padding-top: 4px;
+  // margin: auto;
 }
 
 p{
   color:white;
   letter-spacing: 3px;
-}
-p a img.oauth{
-  position: relative;
-  top:10px;
 }
 .top-bar-section > ul > .divider {
   border-left:none;
@@ -61,11 +46,18 @@ p a img.oauth{
   border-radius: 8px;
 
 }
-.top-bar .name h1 a {
-  color: black;
+.huddles_highlight{
+  background-color: white;
+}
+.huddles{
+  padding: 10px;
 }
 .panel{
   background: rgba(255,255,255, .95);
+  $panel-border-size: 0px;
+}
+.hover_panel{
+  background: rgba(255,255,255, 1);
 }
 .alert-box{
   text-align: center;
