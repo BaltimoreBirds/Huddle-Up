@@ -4,19 +4,19 @@ $(document).ready(function(){
   $(".errors").fadeOut(4600);
 
   $('div div.my_huddles').bind('mouseenter',function(){
-    $(this).addClass("huddles_highlight");
+    $(this).addClass("highlight");
   });
   $('div div.my_huddles').bind('mouseleave',function(){
-    $(this).removeClass("huddles_highlight");
+    $(this).removeClass("highlight");
   });
 
-  $('div div.huddles').bind('mouseenter',function(){
+  $('div div.all_huddles_framing').bind('mouseenter',function(){
+    $(this).removeClass('huddles');
     $(this).addClass("huddles_highlight");
-    $(this).removeClass("panel");
   });
-  $('div div.huddles').bind('mouseleave',function(){
+  $('div div.all_huddles_framing').bind('mouseleave',function(){
+    $(this).addClass('huddles');
     $(this).removeClass("huddles_highlight");
-    $(this).addClass("panel");
   });
 
   function poll() {

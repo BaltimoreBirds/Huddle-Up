@@ -11,10 +11,8 @@
         <%= @location.court_name %>
       </p>
     <h5>Nearby locations</h5>
-      <% binding.pry %>
       <% @location.nearbys(20).each do |location| %>
         <p><%= link_to location.court_name, location %> (<%= location.distance.round(2) %> miles)</p>
       <% end %>
-
   </div>
 </div>
