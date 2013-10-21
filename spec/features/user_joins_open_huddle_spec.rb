@@ -27,7 +27,7 @@ let(:huddle){FactoryGirl.create(:huddle, creator: huddle_creator.id, location_id
     sign_in_as(user)
 
     prev_count = HuddleUser.where(huddle_id: huddle.id).count
-    expect(page).to have_content('Open Huddles')
+    expect(page).to have_content('Huddling')
     click_link 'Explore this Huddle'
 
     expect(page).to have_content('Huddle Details')
@@ -48,7 +48,7 @@ let(:huddle){FactoryGirl.create(:huddle, creator: huddle_creator.id, location_id
     sign_in_as(user2)
 
     prev_count = HuddleUser.where(huddle_id: huddle.id).count
-    expect(page).to have_content('Open Huddles')
+    expect(page).to have_content('Huddling')
     expect(page).to have_content('This Huddle is full')
     expect(page).to have_content('Explore this Huddle')
     visit'/huddles/1'
@@ -59,7 +59,7 @@ let(:huddle){FactoryGirl.create(:huddle, creator: huddle_creator.id, location_id
     expect(page).to have_content('This Huddle is full. Check out different Huddles?')
     click_link 'Check out different Huddles?'
 
-    expect(page).to have_content('Open Huddles')
+    expect(page).to have_content('Huddling')
     expect(HuddleUser.where(huddle_id: huddle.id).count).to eql(prev_count)
     expect(huddle.users.where(id: user2.id).count).to eql(0)
   end

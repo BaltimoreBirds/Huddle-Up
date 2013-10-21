@@ -6,17 +6,16 @@
       <%- currently_in = Huddle.current_users_huddle_finder(current_user) %>
       <%- if currently_in != [] %>
         <h5> Huddles your currently In</h5>
-        <div class="row currently_in_height">
+        <div>
           <%- currently_in.each do |huddle| %>
               <div class="small-12 large-3 columns huddles_framing my_huddles">
-                <strong class="marginalizer">Location:</strong><p class="marginalizer"><%=link_to "#{huddle.location.court_name}", huddle.location, class: "link" %></p>
+                <strong class="marginalizer">Location:</strong><p class="marginalizer loc_height"><%=link_to "#{huddle.location.court_name}", huddle.location, class: "link" %></p>
                 <strong class="marginalizer">Date and Time:</strong>
-                <p class="marginalizer"><%= huddle.time_and_date %></p>
+                <p class="marginalizer"><%= huddle.time_and_date.strftime("%a %b %-d, %Y %-l:%M%P") %></p>
                 <%if huddle.huddle_full? %>
                   <p>This Huddle is full</p>
                 <% end %>
                 <div class="row">
-                  <div class="space_filler"></div>
                 <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius center_text" %>
                 </div>
               </div>
@@ -31,15 +30,15 @@
             </div>
           <%-end-%>
         </div>
+      <%-else-%>
+        <h5> Your not in any Huddles right now!</h5>
       <%- end -%>
     <%-end-%>
   </div>
 </div>
 
-<h2 class="center_text">Open Huddles. Get in there!</h2>
-
-
 <div class="row">
+    <h2 class="center_text">Huddling...</h2>
     <%- @huddles.each do |huddle| -%>
         <div class="small-12 large-4 columns all_huddles_framing huddles center_text">
           <strong class="marginalizer">Location</strong><p class="marginalizer"><%=link_to "#{huddle.location.court_name}", huddle.location, class: "link" %></p>
@@ -47,7 +46,7 @@
             <strong> This Huddle is full </strong>
           <%- end -%>
           <strong class="marginalizer">Date and Time</strong>
-          <p class="marginalizer"><%= huddle.time_and_date %></p>
+          <p class="marginalizer"><%= huddle.time_and_date.strftime("%a %b %-d, %Y %-l:%M%P") %></p>
           <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius" %>
         </div>
     <%- end -%>

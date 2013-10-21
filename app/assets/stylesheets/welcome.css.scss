@@ -49,15 +49,19 @@ p{
   border-left:none;
   border-right:none;
 }
-
+.loc_height{
+  height: 45px;
+}
+.marginalize{
+  margin-bottom: 10px;
+}
 .huddles_framing{
   text-align: center;
   border-radius: 8px;
   height: 100%;
-
 }
 .all_huddles_framing{
-  border-radius: 20px;
+  border-radius: 50px;
   margin-bottom: 20px;
 }
 .highlight{
@@ -164,15 +168,7 @@ select#huddle_location_id{
 .display_inline{
   display: inline;
 }
-.marginalizer{
-  margin-bottom: 5px;
-}
-.currently_in_height{
-  height:200px;
-}
-.space_filler{
-  height:100%;
-}
+
 @media only screen and (max-width: 768px) {
   body{
     width:100%;
