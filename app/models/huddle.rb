@@ -58,7 +58,6 @@ class Huddle < ActiveRecord::Base
         end
       end
       huddles
-
     end
   end
 end

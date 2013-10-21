@@ -4,11 +4,17 @@
     <strong class="marginalizer">Location</strong>
       <p>
         <strong>Address:</strong>
-        <p class="display_inline"><%= @location.street %><%= @location.city %><%= @location.state %></p><p class="display_inline">,<%= @location.postal %></p>
+        <p class="display_inline"><%= @location.street %></p><p class="display_inline"> <%= @location.city %></p><p class="display_inline">, <%= @location.state %></p><p><%= @location.postal %></p>
       </p>
       <p>
         <strong>Court Name:</strong>
         <%= @location.court_name %>
+      </p>
+      <p>
+        <strong>Huddles at this location:</strong>
+        <%- @location.huddles.each do |huddle| -%>
+          <%= link_to "#{huddle.time_and_date.strftime("%a %b %-d, %Y %-l:%M%P")}", huddle, method: :get, class: "link" %>
+        <%-end-%>
       </p>
     <h5>Nearby locations:</h5>
       <% @location.nearbys(20).each do |location| %>
@@ -22,7 +28,6 @@
 <div class="row">
     <ul class="locations">
       <%= render @location %>
-
   </ul>
 </div>
 
