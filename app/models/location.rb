@@ -75,16 +75,12 @@ class Location < ActiveRecord::Base
     [street, city, state, postal].compact.join(', ')
   end
 
-class<< self
-  def huddlers
-    huddles= []
-    huddle_array =  Huddle.where(location_id: self.id)
-    huddle_array.each do |huddle|
-      if (huddle.time_and_date - DateTime.now) > 0
-        huddles<< huddle
-      end
+  class<< self
+    def huddles_at_location(location)
+      location.huddles.order("time_and_date ASC")
     end
-    huddles
+
   end
-end
+
+
 end

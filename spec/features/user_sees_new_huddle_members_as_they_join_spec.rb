@@ -28,7 +28,7 @@ So that I am aware of how fast a huddle fills
     expect(page).to have_content('Huddling')
     click_link 'Explore this Huddle'
 
-    expect(page).to have_content('Huddle Details')
+    expect(page).to have_content('Members')
     expect(page).to have_content(huddle.location.court_name)
     expect(page).to have_content(huddle.skill_level)
     expect(page).to have_content('Members in Huddle:')

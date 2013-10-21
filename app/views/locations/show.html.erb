@@ -12,9 +12,13 @@
       </p>
       <p>
         <strong>Huddles at this location:</strong>
-        <%- @location.huddles.each do |huddle| -%>
-          <%= link_to "#{huddle.time_and_date.strftime("%a %b %-d, %Y %-l:%M%P")}", huddle, method: :get, class: "link" %>
-        <%-end-%>
+        <div class="row">
+          <ul class=" small-12 large-6 large-centered columns">
+            <%- Location.huddles_at_location(@location).each do |huddle| -%>
+              <%= link_to "#{huddle.time_and_date.strftime("%a %b %-d, %Y %-l:%M%P")}", huddle, method: :get, class: "link" %>
+            <%-end-%>
+          </ul>
+        </div>
       </p>
     <h5>Nearby locations:</h5>
       <% @location.nearbys(20).each do |location| %>

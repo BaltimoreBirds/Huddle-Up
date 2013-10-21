@@ -3,37 +3,41 @@
     <div class = " small-12 large-12 large-centered columns panel huddles_framing">
 
 
-      <h1>Huddle Details</h1>
-
-      <p>This game is being played at:</p>
-      <%=link_to "#{@huddle.location.court_name}", @huddle.location, class: "display_inline" %>
+      <h4 class="marginalize"><%= @huddle.time_and_date.strftime("%a %b %-d, %Y %-l:%M%P") %></h4>
+      <strong>This game is being played at:</strong>
+      <p class="marginalize"><%=link_to "#{@huddle.location.court_name}", @huddle.location, class: "display_inline link" %></p>
 
       <div class="row">
-          <p>Skill Level</p>
-          <%= @huddle.skill_level %>
+          <strong>Skill Level</strong>
+          <p class="marginalize"><%= @huddle.skill_level %></p>
       </div>
 
-      <div class="row ">
+      <div class="row">
+        <div class=" small-12 large-6 large-centered columns huddles_framing">
           <div class="small-12 large-4 columns">
-            <%= @huddle.users.count %>
+            <strong class="marginalize"><%= @huddle.users.count %></strong>
           </div>
           <div class="small-12 large-4 columns">
-            <p>of</p>
+            <strong>of</strong>
           </div>
           <div class="small-12 large-4 columns">
-            <%= @huddle.size_of_huddle %>
+            <strong class="marginalize"><%= @huddle.size_of_huddle %></strong>
           </div>
+        </div>
       </div>
       <div class="row">
-        <p>desired players waiting</p>
+        <p>players have joined.</p>
       </div>
 
-      <div id="member_display">
-        <p>Members in Huddle:</p>
+      <div id="member_display row">
+        <strong class="marginalize">Members in Huddle:</strong>
         <ul class="members-list">
-          <%- @huddle.users.each do |user| %>
-            <li><%= user.email %></li>
-          <%-end-%>
+          <div class=" small-12 large-6 large-centered columns">
+            <%-@huddle.users ||= [] -%>
+            <%- @huddle.users.each do |user| %>
+              <li><%= user.email %></li>
+            <%-end-%>
+          </div>
         </ul>
       </div>
 

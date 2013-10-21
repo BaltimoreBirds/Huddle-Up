@@ -21,22 +21,6 @@ class Huddle < ActiveRecord::Base
   }
   validates_datetime :time_and_date, on_or_after: lambda{(DateTime.now + 19.minutes)}
 
-  # def huddle_members
-  #   huddle_members = self.huddle_users
-  #   member_array = []
-
-  #   huddle_members.each do |member|
-  #     username = User.where(id: member.user_id).first.username
-  #     email = User.where(id: member.user_id).first.email
-  #     if username != nil
-  #       member_array << username
-  #     else
-  #       member_array << email
-  #     end
-  #   end
-  #   member_array
-  # end
-
   def huddle_full?
     if self.size_of_huddle.to_i == self.users.count
        return "This Huddle is full"

@@ -27,7 +27,7 @@ So that I may be decide whether to register
     click_link 'Guest'
 
     click_link('Explore this Huddle')
-    expect(page).to have_content('Huddle Details')
+    expect(page).to have_content('Members')
     click_link('You must sign in to join')
     find_button('Sign in')
     expect(prev_count).to eql(prev_count)

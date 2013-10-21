@@ -30,7 +30,7 @@ let(:huddle){FactoryGirl.create(:huddle, creator: huddle_creator.id, location_id
     expect(page).to have_content('Huddling')
     click_link 'Explore this Huddle'
 
-    expect(page).to have_content('Huddle Details')
+    expect(page).to have_content('Members')
     expect(page).to have_content(huddle.location.court_name)
     expect(page).to have_content(huddle.skill_level)
     click_button 'Join This Huddle!'
@@ -53,7 +53,7 @@ let(:huddle){FactoryGirl.create(:huddle, creator: huddle_creator.id, location_id
     expect(page).to have_content('Explore this Huddle')
     visit'/huddles/1'
 
-    expect(page).to have_content('Huddle Details')
+    expect(page).to have_content('Members')
     expect(page).to have_content(huddle.location.court_name)
     expect(page).to have_content(huddle.skill_level)
     expect(page).to have_content('This Huddle is full. Check out different Huddles?')
