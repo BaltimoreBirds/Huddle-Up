@@ -8,10 +8,6 @@ body{
   background-size: 100%;
 }
 
-@font-face {
-  font-family: 'scream' ;
-  src: asset-url('scream.ttf', font);
-}
 .logo{
   // font-family: 25px, 'scream';
   text-align: center;
@@ -28,44 +24,83 @@ form {
 }
 .has_form{
   text-align: center;
-  padding-top: 6px;
-  margin: auto;
+  padding-top: 4px;
+  // margin: auto;
 }
-
-.alt_sign_in{
-  text-align: center;
+ @font-face {
+  font-family: 'Marvel-Regular';
+  src:url('Marvel-Regular.ttf');
+  src:url('Marvel-Regular.ttf') format('embedded-opentype'),
+    url('Marvel-Regular.ttf#icomoon') format('svg'),
+    url('leaguegothic-regular-webfont.woff') format('woff'),
+    url('Marvel-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-.twitter{
-  position:relative;
-  top:6px;
-}
-.boxes{
-  padding-bottom:0;
-}
-
 p{
-  color:white;
-  letter-spacing: 3px;
-}
-p a img.oauth{
-  position: relative;
-  top:10px;
+  color:black;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 .top-bar-section > ul > .divider {
   border-left:none;
   border-right:none;
 }
-
+.loc_height{
+  height: 45px;
+}
+.marginalize{
+  margin-bottom: 10px;
+}
 .huddles_framing{
   text-align: center;
   border-radius: 8px;
-
+  height: 100%;
 }
-.top-bar .name h1 a {
-  color: black;
+.all_huddles_framing{
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.highlight{
+  background: rgba(255,255,255, 1);
+}
+.huddles_highlight{
+  background: rgba(255,255,255, 1);
+  margin-bottom:20px;
+}
+.huddles{
+  background: rgba(255,255,255, .90);
 }
 .panel{
-  background: rgba(255,255,255, .95);
+  background: rgba(255,255,255, .90);
+}
+select#huddle_time_and_date_1i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_2i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_3i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_4i{
+  display:inline;
+  height: 18px;
+  width: 100px;
+}
+select#huddle_time_and_date_5i{
+  display:inline;
+  height: 18px;
+  width: 100px;
 }
 .alert-box{
   text-align: center;
@@ -81,11 +116,7 @@ p a img.oauth{
 a{
   color: black;
 }
-p{
-  color:rgba(0,0,0,0.75);
-  font-size: emCalc(18px);
-  font-weight: bold;
-}
+
 .court_form{
   padding-top: 25px;
 }
@@ -95,9 +126,9 @@ p{
 .registration_skill{
   padding-bottom: 20px;
 }
-.guest_button{
-  color: #545F18;
-  padding-top: 4px;
+li.has-form.guest_button a{
+  background-color: #545F18;
+  color: white;
 }
 .create_huddle{
 margin-top: 50px;
@@ -118,6 +149,26 @@ margin-top: 50px;
 .joyride-content-wrapper p {
   color: white;
 }
+.simple_form_errors{
+  font-size: 20px;
+  color:red;
+}
+.form_padding{
+  margin-bottom: 20px;
+}
+select#huddle_location_id{
+  background-color: white;
+  height: 60px;
+  font-size: 14px;
+}
+.add_location_button{
+  display: inline;
+  color: #53ABFF;
+}
+.display_inline{
+  display: inline;
+}
+
 @media only screen and (max-width: 768px) {
   body{
     width:100%;

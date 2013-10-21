@@ -45,6 +45,6 @@ feature'user creates a new huddle', %Q{
 
     expect(page).to have_content("Huddle Created")
     expect(Huddle.all.count).to eql(prev_count + 1)
-    expect(page).to have_content(user.username)
+    expect(page).to have_content(Huddle.first.location.court_name)
   end
 end

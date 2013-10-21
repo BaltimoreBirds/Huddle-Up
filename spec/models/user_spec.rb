@@ -10,12 +10,4 @@ describe User do
   it{should have_valid(:city).when('mike@aol.com')}
   it{should_not have_valid(:city).when(nil, ' ')}
 
-
-
-
-
-
-
-
-
 end

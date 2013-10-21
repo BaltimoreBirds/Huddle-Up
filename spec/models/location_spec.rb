@@ -74,7 +74,6 @@ describe Location do
   it{should have_valid(:court_name).when("Martin Road Park")}
   it{should_not have_valid(:court_name).when(" ", nil)}
 
-  # it{should validate_uniqueness_of(:court_name)} What is wrong with this thing??
   it{should validate_numericality_of(:postal)}
   it{should ensure_inclusion_of(:state).in_array(STATES)}
 

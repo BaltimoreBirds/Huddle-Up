@@ -1,60 +1,70 @@
 
 <%= simple_form_for @huddle do |f| %>
 
-  <div class="row">
+  <div class="row form_padding">
     <div class=" field small-12 large-6 large-centered columns">
       <div class=" small-centered, large-centered columns ">
         <%= f.text_field :size_of_huddle, placeholder:'Desired size of the Huddle' %>
-        <%= f.error :size_of_huddle %>
+        <%= f.error :size_of_huddle, class: "simple_form_errors" %>
       </div>
     </div>
   </div>
-  <div class="small-12 large-6 large-centered columns">
-    <div class="large-centered columns court_form">
-      <div class="field">
-        <%= f.collection_select :location_id,
-          Location.all(order: 'court_name'), :id, :court_name, prompt: true %>
-      </div>
-      <%= f.error :location_id %>
-    </div>
-  </div>
-  <p>Location not in the database?</p>
-  <%= link_to 'Add it here', new_location_path, class: "button radius small" %>
 
-  <div class="row">
-    <div class="small-12 large-8 large-centered columns">
-      <p> Skill Level: </p>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
-        <%= f.label :skill_level_Beginner, "Beginner" %>
-      </div>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Average", id:"Average" %>
-        <%= f.label :skill_level_Average, "Average" %>
-      </div>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
-        <%= f.label :skill_level, "Casual" %>
-      </div>
-      <div class="small-6 large-3 columns">
-        <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
-        <%= f.label :skill_level_Advanced, "Advanced" %>
+<div class="row">
+  <div class="small-12 large-8 large-centered columns panel huddles_framing">
+    <div class="row">
+      <div class="small-12 large-8 large-centered columns field marginalize">
+        <%= f.collection_select :location_id,
+          Location.all(order: 'court_name'), :id, :court_name, prompt: "Please select a location" %>
+        <%= f.error :location_id, class: "simple_form_errors" %>
       </div>
     </div>
-    <%= f.error :skill_level %>
+    <div class="row">
+      <div class="small-12 large-12 large-centered columns">
+        <p class="add_location_button">Location not in the database?</p>
+        <%= link_to 'Add it here', new_location_path, class: "add_location_button" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row form_padding">
+    <div class="small-12 large-8 large-centered columns panel huddles_framing">
+      <p> Skill Level </p>
+      <div class="row">
+        <div class="small-6 large-3 columns">
+          <%= f.radio_button :skill_level, "Beginner", id:"Beginner" %>
+          <%= f.label :skill_level_Beginner, "Beginner" %>
+        </div>
+        <div class="small-6 large-3 columns padder">
+          <%= f.radio_button :skill_level, "Average", id:"Average" %>
+          <%= f.label :skill_level_Average, "Average" %>
+        </div>
+        <div class="small-6 large-3 columns padder">
+          <%= f.radio_button :skill_level, "Casual", id:"Casual" %>
+          <%= f.label :skill_level, "Casual" %>
+        </div>
+        <div class="small-6 large-3 columns padder">
+          <%= f.radio_button :skill_level, "Advanced", id:"Advanced" %>
+          <%= f.label :skill_level_Advanced, "Advanced" %>
+        </div>
+        <%= f.error :skill_level, class: "simple_form_errors" %>
+      </div>
+    </div>
   </div><br>
 
-  <div class="row">
-    <div class="small-12 large-12 columns">
-        <p> Date and Time: </p>
-      <div class="small-6 small-centered large-2 large-centered columns">
-         <%= f.datetime_select :time_and_date, ampm: true  %>
-         <%= f.error :time_and_date %>
-      </div>
+  <div class="row form_padding">
+    <div class="small-12 large-8 large-centered columns panel huddles_framing">
+        <p> Date and Time </p>
+      <span>
+         <%= f.datetime_select :time_and_date, ampm: true %>
+      </span>
+      <%= f.error :time_and_date, class: "simple_form_errors"%>
+
     </div>
 
 
-    <div class="small-12 large-6 columns">
+    <div class="small-12 large-12 columns">
       <div class="large-centered columns">
         <div class="actions create_huddle">
           <%= f.submit 'Create Huddle', class: "button large radius"%>

@@ -3,12 +3,21 @@ $(document).ready(function(){
   $(".alert-box").fadeOut(4600);
   $(".errors").fadeOut(4600);
 
-  $('div div div div div.hover-focus').on('mouseenter','hover',function(){
-    $(this).css();
-
+  $('div div.my_huddles').bind('mouseenter',function(){
+    $(this).addClass("highlight");
+  });
+  $('div div.my_huddles').bind('mouseleave',function(){
+    $(this).removeClass("highlight");
   });
 
-
+  $('div div.all_huddles_framing').bind('mouseenter',function(){
+    $(this).removeClass('huddles');
+    $(this).addClass("huddles_highlight");
+  });
+  $('div div.all_huddles_framing').bind('mouseleave',function(){
+    $(this).addClass('huddles');
+    $(this).removeClass("huddles_highlight");
+  });
 
   function poll() {
     setTimeout(function() {

@@ -25,7 +25,7 @@ So that I am aware of how fast a huddle fills
     sign_in_as(user)
 
     prev_count = HuddleUser.where(huddle_id: huddle.id).count
-    expect(page).to have_content('Open Huddles')
+    expect(page).to have_content('Huddling')
     click_link 'Explore this Huddle'
 
     expect(page).to have_content('Huddle Details')
