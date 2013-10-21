@@ -47,7 +47,6 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers'
-  gem 'validates_timeliness', '~> 3.0'
   gem 'email_spec'
   gem 'quiet_assets'
 
@@ -62,6 +61,8 @@ gem 'devise'
 gem 'active_model_serializers'
 
 gem 'geocoder'
+
+gem 'validates_timeliness', '~> 3.0'
 
 gem 'rails_12factor', group: :production
 
