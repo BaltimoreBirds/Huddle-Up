@@ -5,21 +5,18 @@
     <%-if current_user != nil %>
       <%- currently_in = Huddle.current_users_huddle_finder(current_user) %>
       <%- if currently_in != [] %>
-        <p> Huddles Your Currently In</p>
-        <div class="row">
+        <h5> Huddles your currently In</h5>
+        <div class="row currently_in_height">
           <%- currently_in.each do |huddle| %>
               <div class="small-12 large-3 columns huddles_framing my_huddles">
-                <p>City:</p><%= huddle.location.city %>
-                <p>Court:</p><%= huddle.location.court_name %>
-                <%- if User.where(id: huddle.creator).first.username != nil -%>
-                  <p> Created by: </p><%= User.where(id: huddle.creator).first.username %>
-                <%- else -%>
-                  <p> Created by: </p><%= User.where(id: huddle.creator).first.username %>
-                <%- end -%>
+                <strong class="marginalizer">Location:</strong><p class="marginalizer"><%=link_to "#{huddle.location.court_name}", huddle.location, class: "link" %></p>
+                <strong class="marginalizer">Date and Time:</strong>
+                <p class="marginalizer"><%= huddle.time_and_date %></p>
                 <%if huddle.huddle_full? %>
                   <p>This Huddle is full</p>
                 <% end %>
                 <div class="row">
+                  <div class="space_filler"></div>
                 <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius center_text" %>
                 </div>
               </div>
@@ -44,17 +41,13 @@
 
 <div class="row">
     <%- @huddles.each do |huddle| -%>
-        <div class="small-12 large-4 columns all_huddles_framing huddles">
+        <div class="small-12 large-4 columns all_huddles_framing huddles center_text">
+          <strong class="marginalizer">Location</strong><p class="marginalizer"><%=link_to "#{huddle.location.court_name}", huddle.location, class: "link" %></p>
           <%- if huddle.huddle_full? -%>
-            <p> This Huddle is full </p>
+            <strong> This Huddle is full </strong>
           <%- end -%>
-          <%- if User.where(id: huddle.creator).first.username != nil -%>
-              <p><%= "Team captain: " %></p>
-              <p><%= User.where(id: huddle.creator).first.username %></p>
-            <%- else -%>
-              <p><%= "Team captain: " %>
-              <p><%= User.where(id: huddle.creator).first.email %></p>
-          <%- end -%>
+          <strong class="marginalizer">Date and Time</strong>
+          <p class="marginalizer"><%= huddle.time_and_date %></p>
           <%= link_to "Explore this Huddle", huddle, method: :get, class: "button small radius" %>
         </div>
     <%- end -%>

@@ -6,7 +6,7 @@
       <h1>Huddle Details</h1>
 
       <p>This game is being played at:</p>
-      <%=link_to "#{@huddle.location.court_name}", @huddle.location %>
+      <%=link_to "#{@huddle.location.court_name}", @huddle.location, class: "display_inline" %>
 
       <div class="row">
           <p>Skill Level</p>

@@ -8,10 +8,6 @@ body{
   background-size: 100%;
 }
 
-@font-face {
-  font-family: 'scream' ;
-  src: asset-url('scream.ttf', font);
-}
 .logo{
   // font-family: 25px, 'scream';
   text-align: center;
@@ -32,19 +28,22 @@ form {
   // margin: auto;
 }
  @font-face {
-  font-family: 'leaguegothic-regular-webfont';
-  src:url('leaguegothic-regular-webfont.eot');
-  src:url('leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('leaguegothic-regular-webfont.svg#icomoon') format('svg'),
+  font-family: 'Marvel-Regular';
+  src:url('Marvel-Regular.ttf');
+  src:url('Marvel-Regular.ttf') format('embedded-opentype'),
+    url('Marvel-Regular.ttf#icomoon') format('svg'),
     url('leaguegothic-regular-webfont.woff') format('woff'),
-    url('leaguegothic-regular-webfont.ttf') format('truetype');
+    url('Marvel-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 p{
-  color:white;
+  color:black;
   letter-spacing: 1px;
-  font-family: 'leaguegothic-regular-webfont';
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 .top-bar-section > ul > .divider {
   border-left:none;
@@ -54,10 +53,11 @@ p{
 .huddles_framing{
   text-align: center;
   border-radius: 8px;
+  height: 100%;
 
 }
 .all_huddles_framing{
-  border-radius: 8px;
+  border-radius: 20px;
   margin-bottom: 20px;
 }
 .highlight{
@@ -112,11 +112,7 @@ select#huddle_time_and_date_5i{
 a{
   color: black;
 }
-p{
-  color:rgba(0,0,0,0.75);
-  font-size: emCalc(18px);
-  font-weight: bold;
-}
+
 .court_form{
   padding-top: 25px;
 }
@@ -165,8 +161,17 @@ select#huddle_location_id{
   display: inline;
   color: #53ABFF;
 }
-.margin-add{
-  margin-bottom: 20px;
+.display_inline{
+  display: inline;
+}
+.marginalizer{
+  margin-bottom: 5px;
+}
+.currently_in_height{
+  height:200px;
+}
+.space_filler{
+  height:100%;
 }
 @media only screen and (max-width: 768px) {
   body{
