@@ -16,6 +16,8 @@ locations = [
   ["Clarksville Middle School", "6535 Trotter Road","Clarksville", "MD","21029"],
   ["Centennial High School", "4300 Centennial Lane","Ellicott City", "MD","21042"],
   ["Wilde Lake High School", "5460 Trumpeter Rd","Columbia", "MD","21044"],
+  ["Centennial Park(West)", "4651 Centennial Lane","Ellicott City", "MD","21042"],
+  ["Centennial Park(East)", "4800 Woodland Road","Ellicott City", "MD","21042"],
   ["The Athletic Club", "5435 Beaverkill Rd","Columbia", "MD","21044"],
   ["BU Fitness and Recreation Center", "915 Commonwealth Ave","Boston", "MA","02115"],
   ["Shad Hall Fitness", "Soldiers Field Rd","Boston", "MA","02163"],
