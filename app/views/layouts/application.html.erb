@@ -92,7 +92,7 @@
               </li>
               <li class="divider show-for-small"></li>
               <li class="has-form guest_button ">
-                <% if current_user ==nil %>
+                <% if current_user == nil %>
                   <%= link_to 'Guest', huddles_path %>
                 <% else %>
                   <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button radius success"%>
