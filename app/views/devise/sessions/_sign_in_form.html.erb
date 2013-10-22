@@ -4,6 +4,7 @@
 
     <%= form_for(User.new, :url => user_session_path) do |f| %>
       <div>
+        <%= f.error_notification %>
         <%= f.email_field :email, :autofocus => true, placeholder: "Email", class: "sign_in_form" %>
       </div>
 
