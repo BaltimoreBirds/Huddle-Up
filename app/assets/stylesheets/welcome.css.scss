@@ -6,6 +6,9 @@ body{
   padding-bottom:0;
   background-image: image-url(image_path('epicB-ballcourt.jpg'));
   background-size: 100%;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
 }
 
 .logo{
