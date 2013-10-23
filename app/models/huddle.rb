@@ -30,8 +30,8 @@ class Huddle < ActiveRecord::Base
   end
 
   class <<self
-    def current_users_huddle_finder(userid)
-      currently_in = HuddleUser.where(user_id: userid).order("huddle_id ASC")
+    def current_users_huddle_finder(user)
+      currently_in = HuddleUser.where(user_id: user.id).order("huddle_id ASC")
       huddles = []
 
       unless currently_in == []

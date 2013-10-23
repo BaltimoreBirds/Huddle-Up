@@ -3,7 +3,7 @@
     <%= link_to "Create a new Huddle!", new_huddle_path, class: "button radius " %>
 
     <%-if (current_user != nil) && (Huddle.all != [])  %>
-      <%- currently_in = Huddle.current_users_huddle_finder(current_user.id) %>
+      <%- currently_in = Huddle.current_users_huddle_finder(current_user) %>
       <%- if currently_in != [] %>
         <h5> Huddles your currently In</h5>
         <div>
