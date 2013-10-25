@@ -17,7 +17,7 @@ class HuddlesController < ApplicationController
   end
 
   def create
-    if current_user != nil
+    if User.user_signed_in?(current_user)
       @huddle = Huddle.new(huddle_params)
       @huddle.creator = current_user.id
 
@@ -33,7 +33,7 @@ class HuddlesController < ApplicationController
   end
 
   def update
-    if params[:commit]== 'Join This Huddle!'
+    if params[:commit] == 'Join This Huddle!'
       @huddle = Huddle.find(params[:id])
 
       respond_to do |format|
@@ -47,7 +47,7 @@ class HuddlesController < ApplicationController
           format.json { render json: @huddle.errors, status: :unprocessable_entity }
         end
       end
-    elsif params[:commit]== 'Leave this Huddle?'
+    elsif params[:commit] == 'Leave this Huddle?'
 
       @huddle= Huddle.find(params[:id])
       HuddleUser.where(user_id: current_user.id, huddle_id: @huddle.id).destroy_all

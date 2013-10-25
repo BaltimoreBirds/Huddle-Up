@@ -2,7 +2,7 @@
   <div class="small-12 large-12 columns huddles_framing panel">
     <%= link_to "Create a new Huddle!", new_huddle_path, class: "button radius " %>
 
-    <%-if (current_user != nil) && (Huddle.all != [])  %>
+    <%-if User.user_signed_in?(current_user) %>
       <%- currently_in = Huddle.current_users_huddle_finder(current_user) %>
       <%- if currently_in != [] %>
         <h5> Huddles your currently In</h5>
