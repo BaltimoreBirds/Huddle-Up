@@ -14,7 +14,6 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
@@ -46,36 +45,21 @@
               <ul class="dropdown">
                 <li><label>Find:</label></li>
                 <li class="has-dropdown"><a href="#" class="">Courts</a>
-
                   <ul class="dropdown">
                     <li><a href="/locations/new">Add Court</a></li>
                     <li><a href="/locations">See all Courts</a></li>
-
-<!--                     <li><a href="#">Dropdown Level 2d</a></li>
-                    <li><a href="#">Dropdown Level 2e</a></li>
-                    <li><a href="#">Dropdown Level 2f</a></li> -->
                   </ul>
                 </li>
                 <li class="has-dropdown"><a href="#">Huddles</a>
-
-                      <ul class="dropdown">
-                        <li><a href="/huddles/new">Start a Huddle</a></li>
-                        <li><a href="/huddles">All Huddles</a></li>
-                      </ul>
-                    </li>
-                <li><a href="#">Dropdown Level 1b</a></li>
-                <li><a href="#">Dropdown Level 1c</a></li>
-<!--                 <li class="divider"></li>
-                <li><label>Dropdown Level 1 Label</label></li>
-                <li><a href="#">Dropdown Level 1d</a></li>
-                <li><a href="#">Dropdown Level 1e</a></li>
-                <li><a href="#">Dropdown Level 1f</a></li>
-                <li class="divider"></li>
-                <li><a href="#">See all &rarr;</a></li> -->
+                  <ul class="dropdown">
+                    <li><a href="/huddles/new">Start a Huddle</a></li>
+                    <li><a href="/huddles">All Huddles</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
-            <li class="divider"></li>
 
+            <li class="divider"></li>
               <li class="has_form">
                 <div class="search">
                   <div class="row collapse">
@@ -101,7 +85,6 @@
           </ul>
         </section>
       </nav>
-
     <%- if notice !=  nil -%>
         <div data-alert class="alert-box alert row ">
           <p class="small-6 large-centered columns"><%= notice %></p>
