@@ -50,4 +50,10 @@ describe Huddle do
     expect(huddle.huddle_full?).to eql(false)
     expect(huddle1.huddle_full?).to eql("This Huddle is full")
   end
+
+  it 'returns only huddles that havent occured.' do
+    huddle = FactoryGirl.create(:huddle)
+
+    expect(display_pending_huddles
+  end
 end
