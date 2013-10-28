@@ -49,6 +49,7 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'quiet_assets'
+  gem 'timecop'
 
 end
 

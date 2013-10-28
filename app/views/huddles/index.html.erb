@@ -39,7 +39,7 @@
 
 <div class="row">
     <h2 class="center_text">Huddling...</h2>
-    <%- @huddles.each do |huddle| -%>
+    <%- @huddles.display_pending_huddles.each do |huddle| -%>
         <div class="small-12 large-4 columns all_huddles_framing huddles center_text">
           <strong class="marginalizer">Location</strong><p class="marginalizer"><%=link_to "#{huddle.location.court_name}", huddle.location, class: "link" %></p>
           <%- if huddle.huddle_full? -%>

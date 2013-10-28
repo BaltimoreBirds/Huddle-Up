@@ -50,4 +50,22 @@ describe Huddle do
     expect(huddle.huddle_full?).to eql(false)
     expect(huddle1.huddle_full?).to eql("This Huddle is full")
   end
+
+  it 'returns only huddles that havent occured.' do
+    huddle = FactoryGirl.create(:huddle, time_and_date: (DateTime.now + 20.minutes))
+    huddles = Huddle.all
+
+    expect(huddles.display_pending_huddles).to_not be_nil
+    expect(huddles.display_pending_huddles).to be_an(Array)
+    expect(huddles.display_pending_huddles).to eql([huddle])
+  end
+
+  it 'returns only huddles that havent occured.' do
+    huddle = FactoryGirl.create(:huddle, time_and_date: (DateTime.now + 20.minutes))
+    huddles = Huddle.all
+
+    Timecop.freeze(DateTime.now + 30.days) do
+      expect(huddles.display_pending_huddles).to eql([])
+    end
+  end
 end
