@@ -47,7 +47,6 @@ class Huddle < ActiveRecord::Base
     def display_pending_huddles
       pending_huddles = []
       self.all.each do |huddle|
-        binding.pry
         if (huddle.time_and_date - DateTime.now) > 0
           pending_huddles << huddle
         end
