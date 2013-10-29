@@ -7,6 +7,6 @@ FactoryGirl.define do
     creator 1
     location_id 1
     time_and_date DateTime.now.tomorrow
-    recurring_rule 'Weekly on Saturdays'
+    recurring_rule nil
   end
 end

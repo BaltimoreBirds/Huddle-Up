@@ -77,15 +77,4 @@ feature'user creates a new huddle', %Q{
     expect(page).to have_content(Huddle.first.location.court_name)
   end
 
-  # it 'authenticated user creates a new huddle and sets recurring option' do
-  #   user = FactoryGirl.create(:user)
-  #   court = FactoryGirl.create(:location)
-  #   prev_count = Huddle.all.count
-
-  #   huddle = FactoryGirl.create(:huddle)
-
-  #   expect(Huddle.all.count).to eql(prev_count + 1)
-  #   expect(huddle.recurring_rule).to eql('Weekly on Saturdays')
-
-  # end
 end
