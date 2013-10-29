@@ -55,4 +55,7 @@ class Huddle < ActiveRecord::Base
     end
 
   end
+
+private
+
 end

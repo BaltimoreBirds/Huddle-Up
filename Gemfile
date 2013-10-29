@@ -68,6 +68,8 @@ gem 'validates_timeliness', '~> 3.0'
 gem 'rails_12factor', group: :production
 gem 'unicorn'
 
+gem 'recurring_select'
+
 # gem 'jquery_datepicker'
 
 # Use ActiveModel has_secure_password
