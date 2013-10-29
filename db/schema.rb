@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028224124) do
+ActiveRecord::Schema.define(version: 20131029054217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20131028224124) do
     t.integer  "creator",        null: false
     t.datetime "time_and_date",  null: false
     t.integer  "location_id"
+    t.string   "recurring_rule"
   end
 
   create_table "locations", force: true do |t|

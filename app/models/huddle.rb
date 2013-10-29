@@ -1,4 +1,9 @@
 class Huddle < ActiveRecord::Base
+  # include IceCube
+
+  attr_accessor :recurring_rule
+
+  serialize :recurring_rule, Hash
 
   has_many :users,
     through: :huddle_users
@@ -26,6 +31,14 @@ class Huddle < ActiveRecord::Base
        return "This Huddle is full"
     else
       return false
+    end
+  end
+
+  def recurring_rule=(new_rule)
+    if RecurringSelect.is_valid_rule?(new_rule)
+      write_attribute(:recurring_rule, RecurringSelect.dirty_hash_to_rule(new_rule).to_hash)
+    else
+      write_attribute(:recurring_rule, nil)
     end
   end
 
