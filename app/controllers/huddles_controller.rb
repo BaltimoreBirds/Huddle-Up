@@ -61,7 +61,7 @@ class HuddlesController < ApplicationController
 
 private
   def huddle_params
-    params.require(:huddle).permit( :skill_level, :size_of_huddle, :time_and_date, :location_id, :recurring_rule)
+    params.require(:huddle).permit( :skill_level, :size_of_huddle, :time_and_date, :location_id, :occurrences, :recurring_rules)
   end
 
 end

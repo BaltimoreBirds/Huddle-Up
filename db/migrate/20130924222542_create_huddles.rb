@@ -9,6 +9,7 @@ class CreateHuddles < ActiveRecord::Migration
       t.datetime "time_and_date",  null: false
       t.integer  "user_id"
       t.integer  "location_id"
+      t.string   "occurrences"
 
       t.timestamps
     end

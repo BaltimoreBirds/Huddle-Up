@@ -68,4 +68,11 @@ describe Huddle do
       expect(huddles.display_pending_huddles).to eql([])
     end
   end
+
+  it 'updates recurring huddles for indexing' do
+    huddle = FactoryGirl.create(:huddle)
+    huddles=Huddle.all
+
+
+  end
 end

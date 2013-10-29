@@ -1,9 +1,11 @@
 class Huddle < ActiveRecord::Base
-  # include IceCube
+  include IceCube
 
-  attr_accessor :recurring_rule
+  serialize :occurrences, Hash
 
-  serialize :recurring_rule, Hash
+  before_save :set_occurrences
+
+  attr_accessor :recurring_rules
 
   has_many :users,
     through: :huddle_users
@@ -34,15 +36,26 @@ class Huddle < ActiveRecord::Base
     end
   end
 
-  def recurring_rule=(new_rule)
-    if RecurringSelect.is_valid_rule?(new_rule)
-      write_attribute(:recurring_rule, RecurringSelect.dirty_hash_to_rule(new_rule).to_hash)
+  def schedule
+    schedule = Schedule.new(self.time_and_date)
+    if self.occurrences.blank?
+      #no hago nada
     else
-      write_attribute(:recurring_rule, nil)
+      schedule.add_recurrence_rule(RecurringSelect.dirty_hash_to_rule(self.occurrences))
+    end
+    schedule
+  end
+
+  def set_occurrences
+    binding.pry
+    if RecurringSelect.is_valid_rule?(self.recurring_rules)
+      write_attribute(:occurrences, RecurringSelect.dirty_hash_to_rule(self.recurring_rules).to_hash)
+    else
+      write_attribute(:occurrences, nil)
     end
   end
 
-  class <<self
+  class<< self
     def current_users_huddle_finder(user)
       currently_in = HuddleUser.where(user_id: user.id).order("huddle_id ASC")
       huddles = []
@@ -67,8 +80,10 @@ class Huddle < ActiveRecord::Base
       pending_huddles
     end
 
-  end
+    # def update_recurring_huddles
 
-private
+    # end
+
+  end
 
 end

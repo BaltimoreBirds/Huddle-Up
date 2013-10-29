@@ -64,10 +64,10 @@
     </div>
 
     <div class="small-12 large-8 large-centered columns panel huddles_framing">
-        <p> Set to Repeat this Huddle </p>
+        <p><%= f.label :occurrences, "Want this huddle to repeat?" %></p><br />
       <div class="row">
         <div class="small-12 large-4 large-centered columns padding">
-          <%= f.select_recurring :recurring_rule %>
+          <%= f.select_recurring :recurring_rules %>
         </div>
       </div>
       <%= f.error :recurring_rule, class: "simple_form_errors"%>

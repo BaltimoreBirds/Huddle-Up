@@ -67,14 +67,26 @@ feature'user creates a new huddle', %Q{
     select '12', from: 'huddle_time_and_date_3i'
     select '03 AM', from: 'huddle_time_and_date_4i'
     select '30', from: 'huddle_time_and_date_5i'
-    select 'not recurring', from: 'huddle_recurring_rule'
+    select 'not recurring', from: 'huddle_recurring_rules'
 
     click_button'Create Huddle'
 
     expect(page).to have_content("Huddle Created")
     expect(Huddle.all.count).to eql(prev_count + 1)
-    expect(Huddle.all.first.recurring_rule).to eql(nil)
+    expect(Huddle.all.first.occurrences).to eql(nil)
     expect(page).to have_content(Huddle.first.location.court_name)
   end
 
+  it 'authenticated user creates a new huddle and sets recurring option' do
+    user = FactoryGirl.create(:user)
+    court = FactoryGirl.create(:location)
+    prev_count = Huddle.all.count
+    huddle = FactoryGirl.create(:huddle)
+
+
+    expect(Huddle.all.count).to eql(prev_count + 1)
+    # binding.pry
+    expect(huddle.occurrences).to_not be_nil
+
+  end
 end
