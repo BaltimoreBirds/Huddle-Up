@@ -63,6 +63,18 @@
 
     </div>
 
+    <div class="small-12 large-8 large-centered columns panel huddles_framing">
+        <p> Date and Time </p>
+      <span>
+        <%= f.select_recurring :time_and_date, [
+          IceCube::Rule.weekly.day(:monday, :wednesday, :friday),
+          IceCube::Rule.weekly.day(:sunday),
+          IceCube::Rule.weekly.day(:saturday),
+          IceCube::Rule.weekly.day(:friday)
+        ]%>
+      </span>
+      <%= f.error :time_and_date, class: "simple_form_errors"%>
+    </div>
 
     <div class="small-12 large-12 columns">
       <div class="large-centered columns">
