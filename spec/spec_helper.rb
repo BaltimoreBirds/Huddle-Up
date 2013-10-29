@@ -7,6 +7,7 @@ require 'valid_attribute'
 require 'capybara'
 require 'capybara/dsl'
 require 'email_spec'
+require 'ice_cube'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,

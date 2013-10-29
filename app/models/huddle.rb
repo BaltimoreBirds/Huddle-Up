@@ -47,7 +47,6 @@ class Huddle < ActiveRecord::Base
   end
 
   def set_occurrences
-    binding.pry
     if RecurringSelect.is_valid_rule?(self.recurring_rules)
       write_attribute(:occurrences, RecurringSelect.dirty_hash_to_rule(self.recurring_rules).to_hash)
     else

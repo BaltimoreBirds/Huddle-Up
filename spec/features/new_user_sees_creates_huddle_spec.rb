@@ -17,19 +17,22 @@ feature'user creates a new huddle', %Q{
 
 } do
 
+  let(:user){FactoryGirl.create(:user)}
+  let(:court){FactoryGirl.create(:location)}
+  let(:prev_count){Huddle.all.count}
+
   it 'authenticated user creates a new huddle from index page'do
+    user
+    court
+    prev_count
 
-
-    user = FactoryGirl.create(:user)
-    court = FactoryGirl.create(:location, court_name: 'Martin Road Park')
-    prev_count = Huddle.all.count
     visit new_user_session_path
 
     sign_in_as(user)
 
     click_link 'Create a new Huddle!'
-    expect(page).to have_content("Huddle Up!")
 
+    expect(page).to have_content("Huddle Up!")
     expect(page).to have_content("Location not in the database?")
     find("input[placeholder='Desired size of the Huddle']").set "2"
     choose "Casual"
@@ -41,23 +44,21 @@ feature'user creates a new huddle', %Q{
     select '30', from: 'huddle_time_and_date_5i'
     click_button'Create Huddle'
 
-
-
     expect(page).to have_content("Huddle Created")
     expect(Huddle.all.count).to eql(prev_count + 1)
     expect(page).to have_content(Huddle.first.location.court_name)
   end
 
   it 'authenticated user creates a new huddle and sees recurring option' do
-    user = FactoryGirl.create(:user)
-    court = FactoryGirl.create(:location)
-    prev_count = Huddle.all.count
+    user
+    court
+    prev_count
 
     sign_in_as(user)
 
     click_link 'Create a new Huddle!'
-    expect(page).to have_content("Huddle Up!")
 
+    expect(page).to have_content("Huddle Up!")
     expect(page).to have_content("Location not in the database?")
     find("input[placeholder='Desired size of the Huddle']").set "2"
     choose "Casual"
@@ -68,25 +69,23 @@ feature'user creates a new huddle', %Q{
     select '03 AM', from: 'huddle_time_and_date_4i'
     select '30', from: 'huddle_time_and_date_5i'
     select 'not recurring', from: 'huddle_recurring_rules'
-
     click_button'Create Huddle'
 
     expect(page).to have_content("Huddle Created")
     expect(Huddle.all.count).to eql(prev_count + 1)
-    expect(Huddle.all.first.occurrences).to eql(nil)
+    expect(Huddle.all.first.occurrences).to be_a(Hash)
     expect(page).to have_content(Huddle.first.location.court_name)
   end
 
-  it 'authenticated user creates a new huddle and sets recurring option' do
-    user = FactoryGirl.create(:user)
-    court = FactoryGirl.create(:location)
-    prev_count = Huddle.all.count
-    huddle = FactoryGirl.create(:huddle)
-
+  it 'huddle has a schedule' do
+    user
+    court
+    prev_count
+    huddle = FactoryGirl.create(:huddle, location_id: court.id)
 
     expect(Huddle.all.count).to eql(prev_count + 1)
-    # binding.pry
-    expect(huddle.occurrences).to_not be_nil
-
+    expect(huddle.occurrences).to be_a(Hash)
+    expect(huddle.schedule.next_occurrence).to_not eql(nil)
   end
+
 end
