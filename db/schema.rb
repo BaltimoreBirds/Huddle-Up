@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20131028224124) do
     t.integer  "creator",        null: false
     t.datetime "time_and_date",  null: false
     t.integer  "location_id"
-    t.string   "occurrences"
+    t.text     "occurrences"
   end
 
   create_table "locations", force: true do |t|
