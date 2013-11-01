@@ -4,7 +4,8 @@ class HuddlesController < ApplicationController
   respond_to :html, :json
 
   def index
-      @huddles = Huddle.all
+    Huddle.update_recurring_huddles_index
+    @huddles = Huddle.all
   end
 
   def new
@@ -61,7 +62,7 @@ class HuddlesController < ApplicationController
 
 private
   def huddle_params
-    params.require(:huddle).permit( :skill_level, :size_of_huddle, :time_and_date, :location_id)
+    params.require(:huddle).permit( :skill_level, :size_of_huddle, :time_and_date, :location_id, :occurrences, :recurring_rules)
   end
 
 end

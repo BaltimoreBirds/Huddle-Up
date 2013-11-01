@@ -1,10 +1,17 @@
 class Huddle < ActiveRecord::Base
+  include IceCube
+
+  serialize :occurrences, Hash
+
+  before_save :set_occurrences
+
+  attr_accessor :recurring_rules
 
   has_many :users,
     through: :huddle_users
 
   has_many :huddle_users,
-    dependent: :destroy
+      dependent: :destroy
 
   belongs_to :location,
     inverse_of: :huddles
@@ -29,7 +36,27 @@ class Huddle < ActiveRecord::Base
     end
   end
 
-  class <<self
+  def schedule
+    schedule = Schedule.new(self.time_and_date)
+    if self.occurrences.blank?
+    else
+      schedule.add_recurrence_rule(RecurringSelect.dirty_hash_to_rule(self.occurrences))
+    end
+    schedule
+  end
+
+  def set_occurrences
+    if Huddle.where(id: self.id).first.nil?
+      if RecurringSelect.is_valid_rule?(self.recurring_rules)
+        write_attribute(:occurrences, RecurringSelect.dirty_hash_to_rule(self.recurring_rules).to_hash)
+        self.schedule.add_recurrence_rule(self.recurring_rules)
+      else
+        write_attribute(:occurrences, nil)
+      end
+    end
+  end
+
+  class<< self
     def current_users_huddle_finder(user)
       currently_in = HuddleUser.where(user_id: user.id).order("huddle_id ASC")
       huddles = []
@@ -44,10 +71,41 @@ class Huddle < ActiveRecord::Base
       huddles
     end
 
+  end
+
+private
+  class<< self
+
+    def destroy
+      binding.pry
+      Huddle.where(huddle_id: self.id).destroy_all
+      HuddleUser.where(huddle_id: self.id).destroy_all
+    end
+
+    def update_recurring_huddles_index
+      huddles = self.all
+      huddles.each do |huddle|
+        if (huddle.occurrences != {}) && (((huddle.schedule.next_occurrence(Date.today)+1.hour) - DateTime.now) > 0)
+          huddle.time_and_date = huddle.schedule.next_occurrence(Time.now)
+          huddle.save!
+        end
+      end
+      destroy_expired_huddles
+    end
+
+    def destroy_expired_huddles
+      pending_huddles = Huddle.all.display_pending_huddles
+      Huddle.all.each do |huddle|
+        if !pending_huddles.include?(huddle)
+          huddle.destroy!
+        end
+      end
+    end
+
     def display_pending_huddles
       pending_huddles = []
       self.all.each do |huddle|
-        if (huddle.time_and_date - DateTime.now) > 0
+        if ((huddle.time_and_date + 1.hour) - DateTime.now) > 0
           pending_huddles << huddle
         end
       end

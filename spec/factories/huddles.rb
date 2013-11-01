@@ -1,4 +1,5 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+include IceCube
 
 FactoryGirl.define do
   factory :huddle do
@@ -7,5 +8,6 @@ FactoryGirl.define do
     creator 1
     location_id 1
     time_and_date DateTime.now.tomorrow
+    recurring_rules = Rule.daily
   end
 end
