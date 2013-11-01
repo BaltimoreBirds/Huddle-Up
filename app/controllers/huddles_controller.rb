@@ -4,7 +4,8 @@ class HuddlesController < ApplicationController
   respond_to :html, :json
 
   def index
-      @huddles = Huddle.all
+    Huddle.update_recurring_huddles_index
+    @huddles = Huddle.all
   end
 
   def new

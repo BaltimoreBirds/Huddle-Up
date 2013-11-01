@@ -8,6 +8,6 @@ FactoryGirl.define do
     creator 1
     location_id 1
     time_and_date DateTime.now.tomorrow
-    occurrences Rule.yearly.day_of_month(13).day(:friday).month_of_year(:october)
+    recurring_rules = Rule.daily
   end
 end

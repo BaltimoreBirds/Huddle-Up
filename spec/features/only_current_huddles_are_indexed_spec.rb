@@ -31,19 +31,22 @@ feature'user sees only current huddles', %Q{
 
   it'user sees recurring huddles with updated time' do
     court = FactoryGirl.create(:location)
-    court1 = FactoryGirl.create(:location, court_name: 'River Hill High School')
     huddle = FactoryGirl.create(:huddle, location_id: court.id)
-    freeze1_time = huddle.time_and_date
+    court1 = FactoryGirl.create(:location, court_name: 'River Hill High School')
+    huddle1 = FactoryGirl.build(:huddle, location_id: court1.id, time_and_date: DateTime.now + 2.days)
+    huddle1.recurring_rules = Rule.daily
+    huddle1.save!
+    binding.pry
 
     Timecop.freeze(DateTime.now + 30.days) do
-      huddle1 = FactoryGirl.create(:huddle, location_id: court1.id, time_and_date: DateTime.tomorrow)
       visit root_path
       click_link 'Guest'
 
       expect(page).to_not have_content('Martin Road Park')
-      expect(page).to have_content(huddle.time_and_date)
       expect(page).to have_content('River Hill High School')
-      expect(huddle.time_and_date).to eql(freeze1_time + 30.days)
+      binding.pry
+      refreshed_huddle = Huddle.where(id: huddle1.id).first
+      expect(refreshed_huddle.time_and_date.to_datetime).to eql(huddle1.schedule.next_occurrence.to_datetime)
     end
   end
 
